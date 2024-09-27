@@ -1,5 +1,11 @@
+'use client';
+
+import Image from "next/image";
 import MenuButton from "./MenuButton"
-import MenuButtonProps from "./MenuButton"
+// import MenuButtonProps from "./MenuButton"
+import styled from "styled-components";
+
+import bugsImage from "/public/bugs.png";
 
 const menuButtonData = [
   {
@@ -20,20 +26,29 @@ const menuButtonData = [
 
 ]
 
+
+
 export default function MenuBar(props: any) {
 
   return (
-    <div>
-      {menuButtonData && menuButtonData.map((button) => {
-        return (
-          <MenuButton
-            navPath={button.navPath}
-            title={button.title}
-            icon={button.icon}
-          />
-        );
-      })
-      }
+    <div className="ml-5 px-7 flex items-center" >
+      <Image src={bugsImage} alt="" width={69} height={69} />
+      <div className="justify-items-start">
+        {menuButtonData && menuButtonData.map((button) => {
+          return (
+            <li style={{listStyle: "none", display:"inline-flex", paddingInline:"1rem"}}>
+              <MenuButton
+                navPath={button.navPath}
+                title={button.title}
+                icon={button.icon}
+              />
+            </li>
+
+          );
+        })
+        }
+      </div>
+
     </div>
   );
 }
