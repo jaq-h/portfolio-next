@@ -1,4 +1,4 @@
-import ProjectData from "/Users/jaq/dev/portfolio-next/public/projects.json";
+import ProjectData from "../../../public/projects.json";
 
 type Project = {
   title: string;
