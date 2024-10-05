@@ -1,0 +1,149 @@
+{
+    "projects": [
+        {
+            "title": "Mesh Media Player",
+            "description": "Play your music and video library all in one place!",
+            "projectLinks": [
+                {
+                    "title": "App Repository",
+                    "icon": "git",
+                    "link": "https://github.com/jaq-h/mesh"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "video",
+                "mediaSrc": "https://youtu.be/Sa8ZyKYzW3k"
+            },
+            "techStack": [
+                {
+                    "title": "JavaScript",
+                    "icon": "icon-javascript"
+                },
+                {
+                    "title": "React.js",
+                    "icon": "icon-reactjs"
+                },
+                {
+                    "title": "Semantic UI",
+                    "icon": "edit"
+                },
+                {
+                    "title": "PostgreSQL",
+                    "icon": "icon-postgres"
+                },
+                {
+                    "title": "Heroku",
+                    "icon": "icon-heroku"
+                },
+                {
+                    "title": "jQuery",
+                    "icon": "icon-jquery"
+                },
+                {
+                    "title": "Spotify SDK/Web API",
+                    "icon": "spotify"
+                },
+                {
+                    "title": "YouTube API",
+                    "icon": "youtube"
+                }
+            ]
+        },
+        {
+            "title": "Fractal Design",
+            "description": "Customize your own fractal animation with different colors and effects!",
+            "projectLinks": [
+                {
+                    "title": "App Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/fractal-design"
+                },
+                {
+                    "title": "Live Demo",
+                    "icon": "share",
+                    "link": "https://fractal-design.now.sh/"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "image",
+                "mediaSrc": ""
+            },
+            "techStack": [
+                {
+                    "title": "JavaScript",
+                    "icon": "icon-javascript"
+                },
+                {
+                    "title": "React.js",
+                    "icon": "icon-reactjs"
+                },
+                {
+                    "title": "p5.js",
+                    "icon": "asterisk"
+                },
+                {
+                    "title": "Semantic UI",
+                    "icon": "edit"
+                },
+                {
+                    "title": "Material UI",
+                    "icon": "sliders horizontal"
+                },
+                {
+                    "title": "Vercel",
+                    "icon": "server"
+                }
+            ]
+        },
+        {
+            "title": "Priority Queue",
+            "description": "Who's next in line?",
+            "projectLinks": [
+                {
+                    "title": "Project Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/priorityQueue"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "image",
+                "mediaSrc": ""
+            },
+            "techStack": [
+                {
+                    "title": "C++",
+                    "icon": "asterisk"
+                }
+            ]
+        },
+        {
+            "title": "Tube Runner",
+            "description": "How far can you make it through space time?",
+            "projectLinks": [
+                {
+                    "title": "Project Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/tube-runner"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "image",
+                "mediaSrc": ""
+            },
+            "techStack": [
+                {
+                    "title": "JavaScript",
+                    "icon": "icon-javascript"
+                },
+                {
+                    "title": "React.js",
+                    "icon": "icon-reactjs"
+                },
+                {
+                    "title": "Three.js",
+                    "icon": "paint brush"
+                }
+            ]
+        }
+    ]
+}
