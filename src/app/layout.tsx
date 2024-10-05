@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <StyledComponentsRegistry>
         <MenuBar />
-        <div>
+        <div className="bg-gray-700">
           {children}
         </div>
         </StyledComponentsRegistry>

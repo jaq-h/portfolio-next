@@ -29,26 +29,23 @@ const menuButtonData = [
 
 
 export default function MenuBar(props: any) {
-
   return (
     <div className="ml-5 px-7 flex items-center" >
       <Image src={bugsImage} alt="" width={69} height={69} />
       <div className="justify-items-start">
-        {menuButtonData && menuButtonData.map((button) => {
+        {menuButtonData && menuButtonData.map((button, index) => {
           return (
-            <li style={{listStyle: "none", display:"inline-flex", paddingInline:"1rem"}}>
+            <li style={{ listStyle: "none", display: "inline-flex", paddingInline: "1rem" }} key={index}>
               <MenuButton
                 navPath={button.navPath}
                 title={button.title}
                 icon={button.icon}
               />
             </li>
-
           );
         })
         }
       </div>
-
     </div>
   );
 }
