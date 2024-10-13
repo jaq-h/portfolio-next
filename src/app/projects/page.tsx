@@ -25,11 +25,11 @@ type TechPills = {
 
 export default function Projects() {
   return (
-    <div className=" grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="mx-auto sm:px10  px-20 py-10 lg:max-w-screen-lg sm:max-w-screen-sm max-w-s">
       {
-        ProjectData.projects && ProjectData.projects.map((project) => {
+        ProjectData.projects && ProjectData.projects.map((project, index) => {
           return (
-            <div>
+            <div key={index} className="py-10">
               <div>
                 {project.title}
               </div>
@@ -37,7 +37,6 @@ export default function Projects() {
                 {project.description}
               </div>
             </div>
-
           )
         })
       }
