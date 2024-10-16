@@ -30,7 +30,8 @@ const menuButtonData = [
 
 export default function MenuBar(props: any) {
   return (
-    <div className="flex items-center mx-auto sm:px10  px-20 py-1 lg:max-w-screen-lg sm:max-w-screen-sm max-w-s" >
+
+    <div className="flex items-center mx-auto py-1  px-2 sm:px-5 lg:max-w-screen-lg sm:max-w-screen-md max-w-s" >
       <Image src={bugsImage} alt="" width={69} height={69} />
       <div className="justify-items-start">
         {menuButtonData && menuButtonData.map((button, index) => {
