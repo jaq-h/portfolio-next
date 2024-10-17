@@ -27,12 +27,12 @@ type TechPills = {
 
 export default function Projects() {
   return (
-    <div className="mx-auto px-2 sm:px-5 py-10 lg:max-w-screen-lg sm:max-w-screen-md max-w-s">
+    <div className="mx-auto px-2 sm:px-5 py-10 sm:max-w-screen-lg max-w-s">
       {
         ProjectData.projects && ProjectData.projects.map((project, index) => {
           return (
-            <div key={index} className="flex mb-2 py-8 px-5 border-2 border-slate-500 rounded-md ">
-              <div className="w-1/2">
+            <div key={index} className="sm:flex sm:justify-between inline mb-2 py-8  border-2 border-slate-500 rounded-md ">
+              <div className="sm:w-1/2 w-full  lg:px-10 px-5 sm:my-0 mb-5">
                 <h2 className="text-xl font-bold pb-2 ">
                   {project.title}
                 </h2>
@@ -40,15 +40,14 @@ export default function Projects() {
                   {project.description}
                 </p>
               </div>
-              <div className="w-1/2 pl-10">
+              <div className="sm:w-1/2 w-full sm:grid sm:justify-items-end lg:px-10 px-5">
                 {project.projectMedia.mediaType === "image" && (
                   <Image src={project.projectMedia.mediaSrc} width={100} height={100} alt="" />
                 )}
                 {project.projectMedia.mediaType === "video" && (
-                  <Iframe src={project.projectMedia.mediaSrc} width={400} height={225} />
+                  <Iframe src={project.projectMedia.mediaSrc} height={250} />
                 )}
               </div>
-
             </div>
           )
         })
