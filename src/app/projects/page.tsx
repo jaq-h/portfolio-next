@@ -1,5 +1,6 @@
 import ProjectData from "../../../public/projects.json";
 import Image from "next/image";
+import Iframe from "app/components/media/Iframe";
 
 type Project = {
   title: string;
@@ -32,9 +33,9 @@ export default function Projects() {
           return (
             <div key={index} className="flex mb-2 py-8 px-5 border-2 border-slate-500 rounded-md ">
               <div className="w-1/2">
-                <p>
+                <h2 className="text-xl font-bold pb-2 ">
                   {project.title}
-                </p>
+                </h2>
                 <p>
                   {project.description}
                 </p>
@@ -44,7 +45,7 @@ export default function Projects() {
                   <Image src={project.projectMedia.mediaSrc} width={100} height={100} alt="" />
                 )}
                 {project.projectMedia.mediaType === "video" && (
-                  <iframe src={project.projectMedia.mediaSrc} width={100} height={100} />
+                  <Iframe src={project.projectMedia.mediaSrc} width={400} height={225} />
                 )}
               </div>
 
