@@ -16,11 +16,11 @@ import Link from "next/link";
 //   mediaSrc: string;
 // }
 
-type ProjectLinkButton = {
-  title: string;
-  icon: string;
-  link: string;
-}
+// export type ProjectLinkButton = {
+//   title: string;
+//   icon: string;
+//   link: string;
+// }
 
 export type TechPills = {
   name: string;
