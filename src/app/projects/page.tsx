@@ -73,8 +73,8 @@ export default function Projects() {
                 </div>
               </div>
               <div className="md:w-1/2 w-full md:grid md:justify-items-end lg:px-7 px-5">
-                {project.projectMedia.mediaType === "image" && (
-                  <Image src={project.projectMedia.mediaSrc} width={100} height={100} alt="" />
+                {project.projectMedia.mediaType === "image" && project.projectMedia.mediaSrc !== "" && (
+                  <Image src={project.projectMedia.mediaSrc} width={600} height={600} alt="" />
                 )}
                 {project.projectMedia.mediaType === "video" && (
                   <Iframe src={project.projectMedia.mediaSrc} height={275} />
