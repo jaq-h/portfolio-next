@@ -6,7 +6,7 @@
             "projectLinks": [
                 {
                     "title": "App Repository",
-                    "icon": "git",
+                    "icon": "github",
                     "link": "https://github.com/jaq-h/mesh"
                 }
             ],
@@ -16,36 +16,40 @@
             },
             "techStack": [
                 {
-                    "title": "JavaScript",
-                    "icon": "icon-javascript"
+                    "name": "JavaScript",
+                    "icon": "js square"
                 },
                 {
-                    "title": "React.js",
-                    "icon": "icon-reactjs"
+                    "name": "React.js",
+                    "icon": "react"
                 },
                 {
-                    "title": "Semantic UI",
-                    "icon": "edit"
+                    "name": "Ruby On Rails",
+                    "icon": "icon-ruby-on-rails"
                 },
                 {
-                    "title": "PostgreSQL",
+                    "name": "PostgreSQL",
                     "icon": "icon-postgres"
                 },
                 {
-                    "title": "Heroku",
+                    "name": "Heroku",
                     "icon": "icon-heroku"
                 },
                 {
-                    "title": "jQuery",
-                    "icon": "icon-jquery"
-                },
-                {
-                    "title": "Spotify SDK/Web API",
+                    "name": "Spotify SDK/Web API",
                     "icon": "spotify"
                 },
                 {
-                    "title": "YouTube API",
+                    "name": "YouTube API",
                     "icon": "youtube"
+                },
+                {
+                    "name": "jQuery",
+                    "icon": "icon-jquery"
+                },
+                {
+                    "name": "Semantic UI",
+                    "icon": "edit"
                 }
             ]
         },
@@ -60,7 +64,7 @@
                 },
                 {
                     "title": "Live Demo",
-                    "icon": "share",
+                    "icon": "linkify",
                     "link": "https://fractal-design.now.sh/"
                 }
             ],
@@ -70,27 +74,27 @@
             },
             "techStack": [
                 {
-                    "title": "JavaScript",
-                    "icon": "icon-javascript"
+                    "name": "JavaScript",
+                    "icon": "js square"
                 },
                 {
-                    "title": "React.js",
+                    "name": "React.js",
                     "icon": "icon-reactjs"
                 },
                 {
-                    "title": "p5.js",
+                    "name": "p5.js",
                     "icon": "asterisk"
                 },
                 {
-                    "title": "Semantic UI",
+                    "name": "Semantic UI",
                     "icon": "edit"
                 },
                 {
-                    "title": "Material UI",
+                    "name": "Material UI",
                     "icon": "sliders horizontal"
                 },
                 {
-                    "title": "Vercel",
+                    "name": "Vercel",
                     "icon": "server"
                 }
             ]
@@ -111,8 +115,8 @@
             },
             "techStack": [
                 {
-                    "title": "C++",
-                    "icon": "asterisk"
+                    "name": "C++",
+                    "icon": ""
                 }
             ]
         },
@@ -132,15 +136,15 @@
             },
             "techStack": [
                 {
-                    "title": "JavaScript",
-                    "icon": "icon-javascript"
+                    "name": "JavaScript",
+                    "icon": "js square"
                 },
                 {
-                    "title": "React.js",
+                    "name": "React.js",
                     "icon": "icon-reactjs"
                 },
                 {
-                    "title": "Three.js",
+                    "name": "Three.js",
                     "icon": "paint brush"
                 }
             ]
