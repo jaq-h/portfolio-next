@@ -1,0 +1,153 @@
+{
+    "projects": [
+        {
+            "title": "Mesh Media Player",
+            "description": "Play your music and video library all in one place!",
+            "projectLinks": [
+                {
+                    "title": "App Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/mesh"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "video",
+                "mediaSrc": "https://youtube.com/embed/Sa8ZyKYzW3k"
+            },
+            "techStack": [
+                {
+                    "name": "JavaScript",
+                    "icon": "js square"
+                },
+                {
+                    "name": "React.js",
+                    "icon": "react"
+                },
+                {
+                    "name": "Ruby On Rails",
+                    "icon": "icon-ruby-on-rails"
+                },
+                {
+                    "name": "PostgreSQL",
+                    "icon": "icon-postgres"
+                },
+                {
+                    "name": "Heroku",
+                    "icon": "icon-heroku"
+                },
+                {
+                    "name": "Spotify SDK/Web API",
+                    "icon": "spotify"
+                },
+                {
+                    "name": "YouTube API",
+                    "icon": "youtube"
+                },
+                {
+                    "name": "jQuery",
+                    "icon": "icon-jquery"
+                },
+                {
+                    "name": "Semantic UI",
+                    "icon": "edit"
+                }
+            ]
+        },
+        {
+            "title": "Fractal Design",
+            "description": "Customize your own fractal animation with different colors and effects!",
+            "projectLinks": [
+                {
+                    "title": "App Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/fractal-design"
+                },
+                {
+                    "title": "Live Demo",
+                    "icon": "linkify",
+                    "link": "https://fractal-design.now.sh/"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "image",
+                "mediaSrc": ""
+            },
+            "techStack": [
+                {
+                    "name": "JavaScript",
+                    "icon": "js square"
+                },
+                {
+                    "name": "React.js",
+                    "icon": "icon-reactjs"
+                },
+                {
+                    "name": "p5.js",
+                    "icon": "asterisk"
+                },
+                {
+                    "name": "Semantic UI",
+                    "icon": "edit"
+                },
+                {
+                    "name": "Material UI",
+                    "icon": "sliders horizontal"
+                },
+                {
+                    "name": "Vercel",
+                    "icon": "server"
+                }
+            ]
+        },
+        {
+            "title": "Priority Queue",
+            "description": "Who's next in line?",
+            "projectLinks": [
+                {
+                    "title": "Project Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/priorityQueue"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "image",
+                "mediaSrc": ""
+            },
+            "techStack": [
+                {
+                    "name": "C++",
+                    "icon": ""
+                }
+            ]
+        },
+        {
+            "title": "Tube Runner",
+            "description": "How far can you make it through space time?",
+            "projectLinks": [
+                {
+                    "title": "Project Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/tube-runner"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "image",
+                "mediaSrc": ""
+            },
+            "techStack": [
+                {
+                    "name": "JavaScript",
+                    "icon": "js square"
+                },
+                {
+                    "name": "React.js",
+                    "icon": "icon-reactjs"
+                },
+                {
+                    "name": "Three.js",
+                    "icon": "paint brush"
+                }
+            ]
+        }
+    ]
+}
