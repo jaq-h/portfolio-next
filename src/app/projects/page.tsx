@@ -3,19 +3,18 @@ import Image from "next/image";
 import Iframe from "app/components/media/Iframe";
 import Icon from "app/components/media/Icon";
 import Link from "next/link";
-import { Fragment } from "react";
 
-type Project = {
-  title: string;
-  description: string;
-  projectLinks: Array<ProjectLinkButton>;
-  techStack: Array<TechPills>
-}
+// type Project = {
+//   title: string;
+//   description: string;
+//   projectLinks: Array<ProjectLinkButton>;
+//   techStack: Array<TechPills>
+// }
 
-type ProjectMedia = {
-  mediaType: ["video", "image"];
-  mediaSrc: string;
-}
+// type ProjectMedia = {
+//   mediaType: ["video", "image"];
+//   mediaSrc: string;
+// }
 
 type ProjectLinkButton = {
   title: string;
