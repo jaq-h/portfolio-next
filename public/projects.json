@@ -1,6 +1,43 @@
 {
     "projects": [
         {
+            "title": "DIY Portfolio Builder",
+            "description": "Author a software development portfolio in minutes!",
+            "projectLinks": [
+                {
+                    "title": "App Repository",
+                    "icon": "github",
+                    "link": "https://github.com/jaq-h/portfolio-next"
+                }
+            ],
+            "projectMedia": {
+                "mediaType": "video",
+                "mediaSrc": "https://youtube.com/embed/Sa8ZyKYzW3k"
+            },
+            "techStack": [
+                {
+                    "name": "TypeScript",
+                    "icon": "js square"
+                },
+                {
+                    "name": "Next.js",
+                    "icon": "forward"
+                },
+                {
+                    "name": "React.js",
+                    "icon": "react"
+                },
+                {
+                    "name": "Tailwind CSS",
+                    "icon": "icon-css"
+                },
+                {
+                    "name": "Vercel",
+                    "icon": "server"
+                }
+            ]
+        },
+        {
             "title": "Mesh Media Player",
             "description": "Play your music and video library all in one place!",
             "projectLinks": [
