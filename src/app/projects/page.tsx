@@ -47,7 +47,7 @@ export default function Projects() {
                   {project.projectLinks && project.projectLinks.map((link, index) => {
                     return (
                       <span className="pr-4" key={`project-link-${index}`}>
-                        <Link className="p-2 bg-slate-900  hover:border-slate-400 border-2 border-slate-500 rounded-md" href={link.link}>
+                        <Link rel="noopener noreferrer" target="_blank" className="p-2 bg-slate-900  hover:border-slate-400 border-2 border-slate-500 rounded-md" href={link.link}>
                           <Icon icon={link.icon} /> {link.title}
                         </Link>
                       </span>
