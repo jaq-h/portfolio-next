@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+  <defs>
+    <linearGradient id="vite-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#41D1FF"/>
+      <stop offset="100%" stop-color="#BD34FE"/>
+    </linearGradient>
+  </defs>
+  <path d="M4 14l8-12v8h8l-8 12v-8H4z" fill="url(#vite-grad)" stroke="url(#vite-grad)" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

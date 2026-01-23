@@ -1,153 +1,196 @@
 {
-    "projects": [
+  "projects": [
+    {
+      "title": "Block Builder",
+      "description": "Drag and Drop Trade Strategy Assembly",
+      "projectLinks": [
         {
-            "title": "Mesh Media Player",
-            "description": "Play your music and video library all in one place!",
-            "projectLinks": [
-                {
-                    "title": "App Repository",
-                    "icon": "github",
-                    "link": "https://github.com/jaq-h/mesh"
-                }
-            ],
-            "projectMedia": {
-                "mediaType": "video",
-                "mediaSrc": "https://youtube.com/embed/Sa8ZyKYzW3k"
-            },
-            "techStack": [
-                {
-                    "name": "JavaScript",
-                    "icon": "js square"
-                },
-                {
-                    "name": "React.js",
-                    "icon": "react"
-                },
-                {
-                    "name": "Ruby On Rails",
-                    "icon": "icon-ruby-on-rails"
-                },
-                {
-                    "name": "PostgreSQL",
-                    "icon": "icon-postgres"
-                },
-                {
-                    "name": "Heroku",
-                    "icon": "icon-heroku"
-                },
-                {
-                    "name": "Spotify SDK/Web API",
-                    "icon": "spotify"
-                },
-                {
-                    "name": "YouTube API",
-                    "icon": "youtube"
-                },
-                {
-                    "name": "jQuery",
-                    "icon": "icon-jquery"
-                },
-                {
-                    "name": "Semantic UI",
-                    "icon": "edit"
-                }
-            ]
+          "title": "App Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/block-builder-3"
         },
         {
-            "title": "Fractal Design",
-            "description": "Customize your own fractal animation with different colors and effects!",
-            "projectLinks": [
-                {
-                    "title": "App Repository",
-                    "icon": "github",
-                    "link": "https://github.com/jaq-h/fractal-design"
-                },
-                {
-                    "title": "Live Demo",
-                    "icon": "linkify",
-                    "link": "https://fractal-design.now.sh/"
-                }
-            ],
-            "projectMedia": {
-                "mediaType": "image",
-                "mediaSrc": "/fratcalpreview.png"
-            },
-            "techStack": [
-                {
-                    "name": "JavaScript",
-                    "icon": "js square"
-                },
-                {
-                    "name": "React.js",
-                    "icon": "icon-reactjs"
-                },
-                {
-                    "name": "p5.js",
-                    "icon": "asterisk"
-                },
-                {
-                    "name": "Semantic UI",
-                    "icon": "edit"
-                },
-                {
-                    "name": "Material UI",
-                    "icon": "sliders horizontal"
-                },
-                {
-                    "name": "Vercel",
-                    "icon": "server"
-                }
-            ]
-        },
-        {
-            "title": "Priority Queue",
-            "description": "Who's next in line?",
-            "projectLinks": [
-                {
-                    "title": "Project Repository",
-                    "icon": "github",
-                    "link": "https://github.com/jaq-h/priorityQueue"
-                }
-            ],
-            "projectMedia": {
-                "mediaType": "image",
-                "mediaSrc": "/priorityQueueGraph.jpg"
-            },
-            "techStack": [
-                {
-                    "name": "C++",
-                    "icon": ""
-                }
-            ]
-        },
-        {
-            "title": "Tube Runner",
-            "description": "How far can you make it through space time?",
-            "projectLinks": [
-                {
-                    "title": "Project Repository",
-                    "icon": "github",
-                    "link": "https://github.com/jaq-h/tube-runner"
-                }
-            ],
-            "projectMedia": {
-                "mediaType": "image",
-                "mediaSrc": ""
-            },
-            "techStack": [
-                {
-                    "name": "JavaScript",
-                    "icon": "js square"
-                },
-                {
-                    "name": "React.js",
-                    "icon": "icon-reactjs"
-                },
-                {
-                    "name": "Three.js",
-                    "icon": "paint brush"
-                }
-            ]
+          "title": "Live Demo",
+          "icon": "link",
+          "link": "https://block-builder2.vercel.app/"
         }
-    ]
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/blockBuilderPreview.png"
+      },
+      "techStack": [
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "Kraken WebSocket API",
+          "icon": "crypto"
+        },
+        {
+          "name": "Vite",
+          "icon": "vite"
+        },
+        {
+          "name": "Vercel",
+          "icon": "vercel"
+        }
+      ]
+    },
+    {
+      "title": "Mesh Media Player",
+      "description": "Play your music and video library all in one place!",
+      "projectLinks": [
+        {
+          "title": "App Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/mesh"
+        },
+        {
+          "title": "Video Demo",
+          "icon": "youtube",
+          "link": "https://youtube.com/embed/Sa8ZyKYzW3k"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/meshPreview.png"
+      },
+      "techStack": [
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "Rust",
+          "icon": "rust"
+        },
+        {
+          "name": "Tauri",
+          "icon": "tauri"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "postgres"
+        },
+        {
+          "name": "Spotify SDK/Web API",
+          "icon": "spotify"
+        },
+        {
+          "name": "YouTube API",
+          "icon": "youtube"
+        },
+        {
+          "name": "TailwindCSS",
+          "icon": "tailwind"
+        }
+      ]
+    },
+    {
+      "title": "Fractal Design",
+      "description": "Customize your own fractal animation with different colors and effects!",
+      "projectLinks": [
+        {
+          "title": "App Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/fractal-design"
+        },
+        {
+          "title": "Live Demo",
+          "icon": "link",
+          "link": "https://fractal-design.now.sh/"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/fratcalpreview.png"
+      },
+      "techStack": [
+        {
+          "name": "JavaScript",
+          "icon": "javascript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "p5.js",
+          "icon": "p5js"
+        },
+        {
+          "name": "Semantic UI",
+          "icon": "semanticui"
+        },
+        {
+          "name": "Material UI",
+          "icon": "materialui"
+        },
+        {
+          "name": "Vercel",
+          "icon": "vercel"
+        }
+      ]
+    },
+    {
+      "title": "Priority Queue",
+      "description": "Who's next in line?",
+      "projectLinks": [
+        {
+          "title": "Project Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/priorityQueue"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/priorityQueueGraph.jpg"
+      },
+      "techStack": [
+        {
+          "name": "C++",
+          "icon": "cpp"
+        }
+      ]
+    },
+    {
+      "title": "Tube Runner",
+      "description": "How far can you make it through space time?",
+      "projectLinks": [
+        {
+          "title": "Project Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/tube-runner"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": ""
+      },
+      "techStack": [
+        {
+          "name": "JavaScript",
+          "icon": "javascript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "Three.js",
+          "icon": "threejs"
+        }
+      ]
+    }
+  ]
 }
