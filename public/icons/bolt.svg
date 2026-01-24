@@ -1,9 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
   <defs>
-    <linearGradient id="vite-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="vite-purple" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#41D1FF"/>
       <stop offset="100%" stop-color="#BD34FE"/>
     </linearGradient>
+    <linearGradient id="vite-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFBD4F"/>
+      <stop offset="100%" stop-color="#FF9A00"/>
+    </linearGradient>
   </defs>
-  <path d="M4 14l8-12v8h8l-8 12v-8H4z" fill="url(#vite-grad)" stroke="url(#vite-grad)" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Outer purple bolt -->
+  <path d="M21 2.5L9 22l.5-9.5L3 11l18-8.5z" fill="url(#vite-purple)"/>
+  <!-- Inner yellow bolt -->
+  <path d="M14.5 2L11 12h4.5L10 22l1-7.5H7L14.5 2z" fill="url(#vite-yellow)"/>
 </svg>

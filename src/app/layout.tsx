@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import "/public/font-mfizz-2.4.1/font-mfizz.css";
-import MenuBar from "./components/menu/MenuBar"
+import MenuBar from "./components/menubar/MenuBar";
+import { ContentProvider } from "@/lib/content/provider";
+import { getAllContent } from "@/lib/content/fetcher";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -18,22 +19,38 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Jacques Hebert",
   description: "Personal Project Portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Fetch all content server-side from Edge Config (with ISR caching)
+  // Falls back to local JSON files if Edge Config is not configured
+  const { menu, projects, icons } = await getAllContent();
+
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900 min-h-screen`}
       >
-        <MenuBar />
-        <div className="bg-slate-900">
-          {children}
-        </div>
+        {/*
+          Content is fetched server-side and provided via React Context.
+          This prevents prop drilling and allows any component to access content.
+
+          Layout breakpoints:
+          - Mobile (< md): Hamburger dropdown menu
+          - Tablet (md - lg): Top bar with inline nav items
+          - Desktop (>= lg): Fixed menu bar (sidebar style) with ml-64 on content
+        */}
+        <ContentProvider menu={menu} projects={projects} icons={icons}>
+          <MenuBar />
+          <main className="lg:ml-64">{children}</main>
+        </ContentProvider>
       </body>
     </html>
   );

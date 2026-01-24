@@ -15,8 +15,14 @@ const iconMap: Record<string, string> = {
   youtube: "youtube",
   spotify: "spotify",
 
-  // Menu
+  // Menu/Navigation
   "icon-html": "html",
+  user: "user",
+  folder: "folder",
+  menu: "menu",
+  close: "close",
+  mail: "mail",
+  document: "document",
 
   // Languages
   javascript: "javascript",
@@ -59,9 +65,37 @@ const iconMap: Record<string, string> = {
 };
 
 // Icons available in UI variant (white/grey)
-const uiIcons = ["github", "linkedin", "link", "youtube", "html"];
+const uiIcons = [
+  "github",
+  "linkedin",
+  "link",
+  "youtube",
+  "html",
+  "user",
+  "folder",
+  "menu",
+  "close",
+  "mail",
+  "document",
+];
 
 export default function Icon({ icon, variant = "tech" }: IconProps) {
+  // Check if icon is a full URL (e.g., from Vercel Blob)
+  const isExternalUrl =
+    icon.startsWith("http://") || icon.startsWith("https://");
+
+  if (isExternalUrl) {
+    return (
+      <Image
+        src={icon}
+        alt="icon"
+        width={16}
+        height={16}
+        className="inline-block align-middle"
+      />
+    );
+  }
+
   const svgName = iconMap[icon];
 
   if (!svgName) {
@@ -81,7 +115,7 @@ export default function Icon({ icon, variant = "tech" }: IconProps) {
       alt={`${icon} icon`}
       width={16}
       height={16}
-      className="inline-block mr-1 align-middle"
+      className="inline-block align-middle"
     />
   );
 }

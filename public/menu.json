@@ -1,0 +1,45 @@
+{
+  "profile": {
+    "name": "Jacques Hebert",
+    "title": "Software Developer",
+    "image": "/bugs.png"
+  },
+  "navigation": [
+    {
+      "title": "About",
+      "path": "/about",
+      "icon": "user"
+    },
+    {
+      "title": "Projects",
+      "path": "/projects",
+      "icon": "folder"
+    },
+    {
+      "title": "Contact",
+      "path": "/contact",
+      "icon": "mail"
+    }
+  ],
+  "externalLinks": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/jaq-h",
+      "icon": "github"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/jaq-h/",
+      "icon": "linkedin"
+    },
+    {
+      "title": "Resume",
+      "url": "/resume.pdf",
+      "icon": "document",
+      "download": true
+    }
+  ],
+  "footer": {
+    "copyright": "© 2024 Jacques Hebert"
+  }
+}
