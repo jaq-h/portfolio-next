@@ -1,26 +1,15 @@
 {
   "title": "About Me",
   "intro": {
-    "heading": "Hello, I'm Jacques Hebert",
-    "text": "I'm a software developer passionate about building modern web applications and exploring new technologies. I enjoy working with TypeScript, React, Rust, and creating tools that solve real problems."
+    "heading": "Hello, my name is Jacques Hebert, but you can call me Jaq",
+    "text": "I'm a software developer passionate about building modern web and desktop applications. I enjoy exploring new technologies and creating tools that solve real problems."
   },
   "skills": {
-    "heading": "Skills",
-    "items": [
-      "TypeScript",
-      "JavaScript",
-      "React",
-      "Next.js",
-      "Rust",
-      "Tauri",
-      "Node.js",
-      "PostgreSQL",
-      "TailwindCSS",
-      "Git"
-    ]
+    "heading": "Most Recent Technolgies Used",
+    "items": ["TypeScript", "React.js", "Next.js", "Rust", "Github"]
   },
   "contact": {
-    "heading": "Get In Touch",
-    "text": "Feel free to reach out through GitHub or LinkedIn. I'm always interested in collaborating on interesting projects or discussing new opportunities."
+    "heading": "Other Strongsuits",
+    "text": "Acessibility Compliance, User Interface Design, QA Testing/Automation, AI Prompting and Training "
   }
 }
