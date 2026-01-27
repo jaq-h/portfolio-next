@@ -2,7 +2,7 @@
   "profile": {
     "name": "Jacques Hebert",
     "title": "Software Developer",
-    "image": "/profile.svg"
+    "image": "/profile.png"
   },
   "navigation": [
     {
@@ -40,6 +40,6 @@
     }
   ],
   "footer": {
-    "copyright": "© 2024 Jacques Hebert"
+    "copyright": "Designed and built by Jacques Hebert"
   }
 }

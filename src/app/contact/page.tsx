@@ -115,12 +115,12 @@ export default function Contact() {
         defer
       />
 
-      <div className="px-6 py-10 max-w-4xl">
-        <h1 className="text-3xl font-bold text-white mb-8">Contact</h1>
+      <div className="p-10">
+        <h1 className="text-3xl font-bold text-white pl-7 mb-8">Contact</h1>
 
-        <div className="space-y-6">
-          <section className="bg-slate-800 border border-purple-950/50 rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-white mb-4">
+        <div className="space-y-8">
+          <section className="bg-slate-800 border-2 border-purple-600/50 rounded-xl p-7">
+            <h2 className="text-xl font-bold text-white mb-4">
               Get My Email Address
             </h2>
             <p className="text-gray-300 leading-relaxed mb-6">
@@ -150,7 +150,7 @@ export default function Contact() {
                   className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                     isVerifying || !captchaToken
                       ? "bg-slate-600 text-slate-400 cursor-not-allowed"
-                      : "bg-purple-950 text-white hover:bg-purple-900 border border-purple-800"
+                      : "bg-slate-900 text-white hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 border-2 border-slate-600"
                   }`}
                 >
                   {isVerifying ? "Verifying..." : "Reveal Email Address"}
@@ -183,12 +183,12 @@ export default function Contact() {
             ) : (
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex-1 bg-slate-900 border border-slate-600 rounded-lg px-4 py-3">
+                  <div className="flex-1 bg-slate-900 border-2 border-slate-600 rounded-lg px-4 py-3">
                     <span className="text-white font-mono">{email}</span>
                   </div>
                   <button
                     onClick={handleCopyEmail}
-                    className="px-4 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+                    className="px-4 py-3 bg-slate-900 hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 text-white border-2 border-slate-600 rounded-lg transition-colors"
                     title="Copy to clipboard"
                   >
                     Copy
@@ -214,8 +214,8 @@ export default function Contact() {
             )}
           </section>
 
-          <section className="bg-slate-800 border border-purple-950/50 rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-white mb-4">
+          <section className="bg-slate-800 border-2 border-purple-600/50 rounded-xl p-7">
+            <h2 className="text-xl font-bold text-white mb-4">
               Other Ways to Connect
             </h2>
             <div className="flex flex-wrap gap-3">
@@ -230,7 +230,7 @@ export default function Contact() {
                       : undefined
                   }
                   download={link.download ? true : undefined}
-                  className="flex items-center gap-2 px-4 py-2.5 bg-slate-700 hover:bg-purple-950 hover:border-purple-800 border border-slate-600 text-white rounded-lg transition-colors"
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-slate-900 hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 border-2 border-slate-600 rounded-md whitespace-nowrap transition-colors"
                 >
                   <Icon icon={link.icon} variant="ui" />
                   <span>{link.title}</span>

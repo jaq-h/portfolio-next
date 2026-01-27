@@ -16,8 +16,8 @@ export default function Projects() {
   const projects = useProjects();
 
   return (
-    <div className="px-6 py-10">
-      <h1 className="text-3xl font-bold text-white pl-14 mb-8">
+    <div className="p-10">
+      <h1 className="text-3xl font-bold text-white pl-7 mb-8">
         Technical Projects
       </h1>
       <div className="space-y-8">
@@ -26,7 +26,7 @@ export default function Projects() {
             return (
               <div
                 key={`project-${index}`}
-                className="md:flex md:justify-between grid grid-cols-1 p-6 bg-slate-800 border-2  border-purple-600/50 rounded-xl"
+                className="md:flex md:justify-between grid grid-cols-1 p-7 bg-slate-800 border-2  border-purple-600/50 rounded-xl"
               >
                 <div className="md:w-1/2 w-full md:my-0 mb-3">
                   <div>
@@ -71,7 +71,7 @@ export default function Projects() {
                     project.projectMedia.mediaSrc !== "" && (
                       <Image
                         src={project.projectMedia.mediaSrc}
-                        className="rounded-md object-top"
+                        className="rounded-lg object-top"
                         width={600}
                         height={600}
                         alt=""

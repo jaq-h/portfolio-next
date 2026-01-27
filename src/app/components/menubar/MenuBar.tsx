@@ -53,7 +53,7 @@ export default function MenuBar() {
               alt="Profile"
               width={40}
               height={40}
-              className="rounded-full flex-shrink-0"
+              className="rounded-lg flex-shrink-0"
             />
             <span className="font-semibold text-white truncate">
               {profile.name}
@@ -131,7 +131,7 @@ export default function MenuBar() {
               alt="Profile"
               width={36}
               height={36}
-              className="rounded-full"
+              className="rounded-lg"
             />
             <span className="font-semibold text-white whitespace-nowrap">
               {profile.name}
@@ -184,9 +184,9 @@ export default function MenuBar() {
             <Image
               src={profile.image}
               alt="Profile"
-              width={100}
-              height={100}
-              className="mb-4"
+              width={150}
+              height={150}
+              className="mb-4 rounded-lg"
             />
             <h1 className="text-xl font-bold text-white mb-1">
               {profile.name}
