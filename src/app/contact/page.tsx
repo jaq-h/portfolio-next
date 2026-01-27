@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Script from "next/script";
-import Icon from "../components/media/Icon";
+import { PageContainer, Card, Button } from "@/app/components/ui";
 import { useExternalLinks } from "@/lib/content/provider";
 
 declare global {
   interface Window {
-    grecaptcha: {
+    grecaptcha?: {
       render: (
         container: HTMLElement | string,
         options: {
@@ -30,7 +29,7 @@ export default function Contact() {
   const [isVerified, setIsVerified] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
@@ -39,9 +38,13 @@ export default function Contact() {
   const externalLinks = useExternalLinks();
 
   useEffect(() => {
-    window.onRecaptchaLoad = () => {
-      setRecaptchaLoaded(true);
-      if (recaptchaRef.current && widgetIdRef.current === null) {
+    const initRecaptcha = () => {
+      if (
+        recaptchaRef.current &&
+        widgetIdRef.current === null &&
+        window.grecaptcha &&
+        typeof window.grecaptcha.render === "function"
+      ) {
         widgetIdRef.current = window.grecaptcha.render(recaptchaRef.current, {
           sitekey: RECAPTCHA_SITE_KEY,
           callback: (token: string) => {
@@ -53,8 +56,70 @@ export default function Contact() {
           },
           theme: "dark",
         });
+
+        // Observe the reCAPTCHA iframe to detect when it's fully rendered
+        const checkRecaptchaReady = () => {
+          const iframe = recaptchaRef.current?.querySelector("iframe");
+          if (iframe) {
+            // Wait for iframe to load its content
+            iframe.addEventListener("load", () => {
+              setRecaptchaReady(true);
+            });
+            // In case it's already loaded
+            if (iframe.contentDocument?.readyState === "complete") {
+              setRecaptchaReady(true);
+            }
+          }
+        };
+
+        // Use MutationObserver to detect when iframe is added
+        const observer = new MutationObserver(() => {
+          const iframe = recaptchaRef.current?.querySelector("iframe");
+          if (iframe) {
+            observer.disconnect();
+            iframe.addEventListener("load", () => {
+              setRecaptchaReady(true);
+            });
+            // Fallback: set ready after a short delay if load event doesn't fire
+            setTimeout(() => setRecaptchaReady(true), 1000);
+          }
+        });
+
+        if (recaptchaRef.current) {
+          observer.observe(recaptchaRef.current, {
+            childList: true,
+            subtree: true,
+          });
+          // Also check immediately in case iframe is already there
+          checkRecaptchaReady();
+        }
       }
     };
+
+    // Check if grecaptcha is already fully loaded (script preloaded in layout)
+    if (
+      typeof window.grecaptcha !== "undefined" &&
+      typeof window.grecaptcha.render === "function"
+    ) {
+      initRecaptcha();
+    } else {
+      // Set up callback for when script finishes loading
+      window.onRecaptchaLoad = () => {
+        initRecaptcha();
+      };
+      // Also poll in case the callback was already called before we set it
+      const pollInterval = setInterval(() => {
+        if (
+          typeof window.grecaptcha !== "undefined" &&
+          typeof window.grecaptcha.render === "function"
+        ) {
+          clearInterval(pollInterval);
+          initRecaptcha();
+        }
+      }, 100);
+      // Clean up polling after 10 seconds
+      setTimeout(() => clearInterval(pollInterval), 10000);
+    }
 
     return () => {
       window.onRecaptchaLoad = undefined;
@@ -92,7 +157,7 @@ export default function Contact() {
       console.error("Verification error:", err);
       setError(err instanceof Error ? err.message : "Verification failed");
       // Reset captcha on error
-      if (widgetIdRef.current !== null) {
+      if (widgetIdRef.current !== null && window.grecaptcha) {
         window.grecaptcha.reset(widgetIdRef.current);
         setCaptchaToken(null);
       }
@@ -108,138 +173,120 @@ export default function Contact() {
   };
 
   return (
-    <>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit`}
-        async
-        defer
-      />
+    <PageContainer title="Contact">
+      <Card>
+        <h2 className="text-xl font-bold text-white mb-4">
+          Get My Email Address
+        </h2>
+        <p className="text-gray-300 leading-relaxed mb-6">
+          To protect against spam and bots, please verify you&apos;re human to
+          reveal my email address.
+        </p>
 
-      <div className="p-10">
-        <h1 className="text-3xl font-bold text-white pl-7 mb-8">Contact</h1>
-
-        <div className="space-y-8">
-          <section className="bg-slate-800 border-2 border-purple-600/50 rounded-xl p-7">
-            <h2 className="text-xl font-bold text-white mb-4">
-              Get My Email Address
-            </h2>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              To protect against spam and bots, please verify you&apos;re human
-              to reveal my email address.
-            </p>
-
-            {!isVerified ? (
-              <div className="space-y-4">
-                {/* Loading indicator - shown before captcha loads */}
-                {!recaptchaLoaded && (
-                  <div className="text-gray-400 text-sm mb-4">
-                    Loading captcha...
-                  </div>
-                )}
-
-                {/* reCAPTCHA widget container - must be empty */}
-                <div
-                  ref={recaptchaRef}
-                  className="mb-4"
-                  style={{ minHeight: "78px" }}
-                />
-
-                <button
-                  onClick={handleVerify}
-                  disabled={isVerifying || !captchaToken}
-                  className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-                    isVerifying || !captchaToken
-                      ? "bg-slate-600 text-slate-400 cursor-not-allowed"
-                      : "bg-slate-900 text-white hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 border-2 border-slate-600"
-                  }`}
-                >
-                  {isVerifying ? "Verifying..." : "Reveal Email Address"}
-                </button>
-
-                {error && <p className="text-red-400 text-sm">{error}</p>}
-
-                <p className="text-gray-500 text-xs">
-                  This site is protected by reCAPTCHA and the Google{" "}
-                  <a
-                    href="https://policies.google.com/privacy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-gray-400"
-                  >
-                    Privacy Policy
-                  </a>{" "}
-                  and{" "}
-                  <a
-                    href="https://policies.google.com/terms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-gray-400"
-                  >
-                    Terms of Service
-                  </a>{" "}
-                  apply.
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex-1 bg-slate-900 border-2 border-slate-600 rounded-lg px-4 py-3">
-                    <span className="text-white font-mono">{email}</span>
-                  </div>
-                  <button
-                    onClick={handleCopyEmail}
-                    className="px-4 py-3 bg-slate-900 hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 text-white border-2 border-slate-600 rounded-lg transition-colors"
-                    title="Copy to clipboard"
-                  >
-                    Copy
-                  </button>
+        {!isVerified ? (
+          <div className="space-y-4">
+            {/* Skeleton loader - shown until captcha iframe is fully ready */}
+            {!recaptchaReady && (
+              <div className="mb-4 w-[304px] h-[78px] bg-slate-700 rounded border border-slate-600 animate-pulse flex items-center px-3 gap-3">
+                <div className="w-7 h-7 bg-slate-600 rounded" />
+                <div className="flex-1 space-y-2">
+                  <div className="h-3 bg-slate-600 rounded w-24" />
+                  <div className="h-2 bg-slate-600 rounded w-16" />
                 </div>
-                <p className="text-green-400 text-sm flex items-center gap-2">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  Verification successful
-                </p>
+                <div className="w-10 h-10 bg-slate-600 rounded" />
               </div>
             )}
-          </section>
 
-          <section className="bg-slate-800 border-2 border-purple-600/50 rounded-xl p-7">
-            <h2 className="text-xl font-bold text-white mb-4">
-              Other Ways to Connect
-            </h2>
-            <div className="flex flex-wrap gap-3">
-              {externalLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.url}
-                  target={link.url.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    link.url.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  download={link.download ? true : undefined}
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-slate-900 hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 border-2 border-slate-600 rounded-md whitespace-nowrap transition-colors"
-                >
-                  <Icon icon={link.icon} variant="ui" />
-                  <span>{link.title}</span>
-                </a>
-              ))}
+            {/* reCAPTCHA widget container - hidden until fully ready */}
+            <div
+              ref={recaptchaRef}
+              className={`mb-4 ${!recaptchaReady ? "invisible absolute" : ""}`}
+              style={{ minHeight: "78px" }}
+            />
+
+            <Button
+              onClick={handleVerify}
+              disabled={isVerifying || !captchaToken}
+              size="lg"
+            >
+              {isVerifying ? "Verifying..." : "Reveal Email Address"}
+            </Button>
+
+            {error && <p className="text-red-400 text-sm">{error}</p>}
+
+            <p className="text-gray-500 text-xs">
+              This site is protected by reCAPTCHA and the Google{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gray-400"
+              >
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://policies.google.com/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gray-400"
+              >
+                Terms of Service
+              </a>{" "}
+              apply.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="flex-1 bg-slate-900 border-2 border-slate-600 rounded-lg px-4 py-3">
+                <span className="text-white font-mono">{email}</span>
+              </div>
+              <Button
+                onClick={handleCopyEmail}
+                title="Copy to clipboard"
+                size="lg"
+              >
+                Copy
+              </Button>
             </div>
-          </section>
+            <p className="text-green-400 text-sm flex items-center gap-2">
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              Verification successful
+            </p>
+          </div>
+        )}
+      </Card>
+
+      <Card>
+        <h2 className="text-xl font-bold text-white mb-4">
+          Other Ways to Connect
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          {externalLinks.map((link, index) => (
+            <Button
+              key={index}
+              href={link.url}
+              icon={link.icon}
+              download={link.download}
+            >
+              {link.title}
+            </Button>
+          ))}
         </div>
-      </div>
-    </>
+      </Card>
+    </PageContainer>
   );
 }

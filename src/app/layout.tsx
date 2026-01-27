@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import MenuBar from "./components/menubar/MenuBar";
 import { ContentProvider } from "@/lib/content/provider";
@@ -35,6 +36,26 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        {/* Preconnect to reCAPTCHA domains for faster loading on Contact page */}
+        <link
+          rel="preconnect"
+          href="https://www.google.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://www.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+        <link rel="dns-prefetch" href="https://www.gstatic.com" />
+      </head>
+      {/* Preload reCAPTCHA script - loads early but doesn't block rendering */}
+      <Script
+        src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit"
+        strategy="lazyOnload"
+      />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900 min-h-screen`}
       >

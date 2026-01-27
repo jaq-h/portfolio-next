@@ -3,6 +3,7 @@ import Image from "next/image";
 type IconProps = {
   icon: string;
   variant?: "tech" | "ui";
+  className?: string;
 };
 
 // Map old Semantic UI icon names to new SVG file names

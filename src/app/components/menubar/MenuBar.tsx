@@ -209,7 +209,7 @@ export default function MenuBar() {
                     href={link.path}
                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                       isActive
-                        ? "bg-purple-950 text-white"
+                        ? "bg-purple-900 text-white"
                         : "text-gray-300 hover:bg-gray-800 hover:text-white"
                     }`}
                   >
