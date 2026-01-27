@@ -24,13 +24,15 @@ export default function Button({
   onClick,
   download,
   external,
-  disabled = false,
+  disabled: disabledProp = false,
   type = "button",
   title,
   variant = "primary",
   size = "md",
   className = "",
 }: ButtonProps) {
+  // Button is disabled if explicitly disabled or if no action/link is provided
+  const disabled = disabledProp || (!href && !onClick);
   const sizeClasses = {
     sm: "px-2 py-1 text-sm",
     md: "px-3 py-2",
