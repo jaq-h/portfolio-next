@@ -1,5 +1,51 @@
 {
+  "pageHeader": {
+    "title": "Technical Projects",
+    "subtitle": "A collection of my work showcasing various technologies and problem-solving approaches",
+    "icon": "folder"
+  },
   "projects": [
+    {
+      "title": "Dev Portfolio",
+      "description": "A modern, responsive developer portfolio built from scratch with Next.js 15 and React 19. Features server-side rendering, dynamic content management via Vercel Edge Config, and a clean, minimalist design with TailwindCSS.",
+      "projectLinks": [
+        {
+          "title": "Source Code",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/portfolio-next"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": ""
+      },
+      "techStack": [
+        {
+          "name": "Next.js",
+          "icon": "nextjs"
+        },
+        {
+          "name": "React",
+          "icon": "react"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "TailwindCSS",
+          "icon": "tailwind"
+        },
+        {
+          "name": "Vercel Edge Config",
+          "icon": "vercel"
+        },
+        {
+          "name": "Vercel Blob",
+          "icon": "vercel"
+        }
+      ]
+    },
     {
       "title": "Block Builder",
       "description": "Drag and Drop Trade Strategy Assembly",

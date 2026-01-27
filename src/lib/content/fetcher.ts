@@ -6,6 +6,7 @@ import type {
   ProjectsContent,
   IconsContent,
   AboutContent,
+  ContactContent,
 } from "./types";
 
 // Create Edge Config client if connection string is available
@@ -23,6 +24,7 @@ const EDGE_CONFIG_KEYS = {
   projects: "projects",
   icons: "icons",
   about: "about",
+  contact: "contact",
 } as const;
 
 /**
@@ -52,7 +54,7 @@ export async function getMenuContent(): Promise<MenuContent> {
       }
     }
     // Fallback to local JSON
-    return readLocalJson<MenuContent>("menu.json");
+    return readLocalJson<MenuContent>("content/menu-page.json");
   } catch (error) {
     console.error("Error fetching menu content:", error);
     return getFallbackMenu();
@@ -73,10 +75,10 @@ export async function getProjectsContent(): Promise<ProjectsContent> {
       }
     }
     // Fallback to local JSON
-    return readLocalJson<ProjectsContent>("projects.json");
+    return readLocalJson<ProjectsContent>("content/projects-page.json");
   } catch (error) {
     console.error("Error fetching projects content:", error);
-    return { projects: [] };
+    return getFallbackProjects();
   }
 }
 
@@ -112,10 +114,31 @@ export async function getAboutContent(): Promise<AboutContent> {
       }
     }
     // Fallback to local JSON
-    return readLocalJson<AboutContent>("about.json");
+    return readLocalJson<AboutContent>("content/about-page.json");
   } catch (error) {
     console.error("Error fetching about content:", error);
     return getFallbackAbout();
+  }
+}
+
+/**
+ * Fetch contact content from Edge Config with local fallback
+ */
+export async function getContactContent(): Promise<ContactContent> {
+  try {
+    if (edgeConfig) {
+      const contact = await edgeConfig.get<ContactContent>(
+        EDGE_CONFIG_KEYS.contact,
+      );
+      if (contact) {
+        return contact;
+      }
+    }
+    // Fallback to local JSON
+    return readLocalJson<ContactContent>("content/contact-page.json");
+  } catch (error) {
+    console.error("Error fetching contact content:", error);
+    return getFallbackContact();
   }
 }
 
@@ -127,39 +150,47 @@ export async function getAllContent(): Promise<{
   projects: ProjectsContent;
   icons: IconsContent;
   about: AboutContent;
+  contact: ContactContent;
 }> {
   try {
     if (edgeConfig) {
       // Fetch all keys in parallel from Edge Config
-      const [menu, projects, icons, about] = await Promise.all([
+      const [menu, projects, icons, about, contact] = await Promise.all([
         edgeConfig.get<MenuContent>(EDGE_CONFIG_KEYS.menu),
         edgeConfig.get<ProjectsContent>(EDGE_CONFIG_KEYS.projects),
         edgeConfig.get<IconsContent>(EDGE_CONFIG_KEYS.icons),
         edgeConfig.get<AboutContent>(EDGE_CONFIG_KEYS.about),
+        edgeConfig.get<ContactContent>(EDGE_CONFIG_KEYS.contact),
       ]);
 
       return {
-        menu: menu || readLocalJson<MenuContent>("menu.json"),
-        projects: projects || readLocalJson<ProjectsContent>("projects.json"),
+        menu: menu || readLocalJson<MenuContent>("content/menu-page.json"),
+        projects:
+          projects ||
+          readLocalJson<ProjectsContent>("content/projects-page.json"),
         icons: icons || { icons: [] },
-        about: about || readLocalJson<AboutContent>("about.json"),
+        about: about || readLocalJson<AboutContent>("content/about-page.json"),
+        contact:
+          contact || readLocalJson<ContactContent>("content/contact-page.json"),
       };
     }
 
     // Fallback to local JSON files
     return {
-      menu: readLocalJson<MenuContent>("menu.json"),
-      projects: readLocalJson<ProjectsContent>("projects.json"),
+      menu: readLocalJson<MenuContent>("content/menu-page.json"),
+      projects: readLocalJson<ProjectsContent>("content/projects-page.json"),
       icons: { icons: [] },
-      about: readLocalJson<AboutContent>("about.json"),
+      about: readLocalJson<AboutContent>("content/about-page.json"),
+      contact: readLocalJson<ContactContent>("content/contact-page.json"),
     };
   } catch (error) {
     console.error("Error fetching all content:", error);
     return {
       menu: getFallbackMenu(),
-      projects: { projects: [] },
+      projects: getFallbackProjects(),
       icons: { icons: [] },
       about: getFallbackAbout(),
+      contact: getFallbackContact(),
     };
   }
 }
@@ -169,7 +200,12 @@ export async function getAllContent(): Promise<{
  */
 function getFallbackAbout(): AboutContent {
   return {
-    title: "About Me",
+    pageHeader: {
+      title: "About Me",
+      subtitle:
+        "Software developer passionate about building modern web applications",
+      icon: "user",
+    },
     intro: {
       heading: "Hello, I'm Jacques Hebert",
       text: "I'm a software developer passionate about building modern web applications and exploring new technologies. I enjoy working with TypeScript, React, Rust, and creating tools that solve real problems.",
@@ -192,6 +228,45 @@ function getFallbackAbout(): AboutContent {
     contact: {
       heading: "Get In Touch",
       text: "Feel free to reach out through GitHub or LinkedIn. I'm always interested in collaborating on interesting projects or discussing new opportunities.",
+    },
+  };
+}
+
+/**
+ * Fallback projects content when all else fails
+ */
+function getFallbackProjects(): ProjectsContent {
+  return {
+    pageHeader: {
+      title: "Technical Projects",
+      subtitle:
+        "A collection of my work showcasing various technologies and problem-solving approaches",
+      icon: "folder",
+    },
+    projects: [],
+  };
+}
+
+/**
+ * Fallback contact content when all else fails
+ */
+function getFallbackContact(): ContactContent {
+  return {
+    pageHeader: {
+      title: "Contact",
+      subtitle:
+        "Get in touch — I'm always open to new opportunities and collaborations",
+      icon: "mail",
+    },
+    sections: {
+      email: {
+        heading: "Get My Email Address",
+        description:
+          "To protect against spam and bots, please verify you're human to reveal my email address.",
+      },
+      connect: {
+        heading: "Other Ways to Connect",
+      },
     },
   };
 }

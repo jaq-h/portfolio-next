@@ -5,6 +5,9 @@ import type {
   MenuContent,
   ProjectsContent,
   IconsContent,
+  AboutContent,
+  ContactContent,
+  PageHeader,
   ExternalLink,
   NavLink,
   Project,
@@ -18,6 +21,8 @@ interface ContentContextValue {
   menu: MenuContent;
   projects: ProjectsContent;
   icons: IconsContent;
+  about: AboutContent;
+  contact: ContactContent;
 }
 
 /**
@@ -34,6 +39,8 @@ interface ContentProviderProps {
   menu: MenuContent;
   projects: ProjectsContent;
   icons: IconsContent;
+  about: AboutContent;
+  contact: ContactContent;
 }
 
 /**
@@ -46,9 +53,11 @@ export function ContentProvider({
   menu,
   projects,
   icons,
+  about,
+  contact,
 }: ContentProviderProps) {
   return (
-    <ContentContext.Provider value={{ menu, projects, icons }}>
+    <ContentContext.Provider value={{ menu, projects, icons, about, contact }}>
       {children}
     </ContentContext.Provider>
   );
@@ -63,7 +72,7 @@ function useContent(): ContentContextValue {
   if (!context) {
     throw new Error(
       "Content hooks must be used within a ContentProvider. " +
-      "Make sure your component is wrapped in the provider (usually in layout.tsx)."
+        "Make sure your component is wrapped in the provider (usually in layout.tsx).",
     );
   }
   return context;
@@ -91,7 +100,7 @@ export function useExternalLinks(): ExternalLink[] {
 }
 
 /**
- * Hook to access projects content
+ * Hook to access projects content (including pageHeader)
  */
 export function useProjectsContent(): ProjectsContent {
   return useContent().projects;
@@ -105,6 +114,13 @@ export function useProjects(): Project[] {
 }
 
 /**
+ * Hook to access projects page header
+ */
+export function useProjectsHeader(): PageHeader {
+  return useContent().projects.pageHeader;
+}
+
+/**
  * Hook to access icons content for dynamic icon loading
  */
 export function useIconsContent(): IconsContent {
@@ -115,7 +131,10 @@ export function useIconsContent(): IconsContent {
  * Hook to find a specific icon by name and variant
  * Returns undefined if not found (component should fallback to local SVG)
  */
-export function useIcon(name: string, variant: "ui" | "tech" = "tech"): IconDefinition | undefined {
+export function useIcon(
+  name: string,
+  variant: "ui" | "tech" = "tech",
+): IconDefinition | undefined {
   const { icons } = useContent().icons;
   return icons.find((icon) => icon.name === name && icon.variant === variant);
 }
@@ -132,4 +151,32 @@ export function useProfile() {
  */
 export function useFooter() {
   return useContent().menu.footer;
+}
+
+/**
+ * Hook to access about content (including pageHeader)
+ */
+export function useAboutContent(): AboutContent {
+  return useContent().about;
+}
+
+/**
+ * Hook to access about page header
+ */
+export function useAboutHeader(): PageHeader {
+  return useContent().about.pageHeader;
+}
+
+/**
+ * Hook to access contact content (including pageHeader)
+ */
+export function useContactContent(): ContactContent {
+  return useContent().contact;
+}
+
+/**
+ * Hook to access contact page header
+ */
+export function useContactHeader(): PageHeader {
+  return useContent().contact.pageHeader;
 }

@@ -53,10 +53,6 @@ export interface Project {
   techStack: TechStack[];
 }
 
-export interface ProjectsContent {
-  projects: Project[];
-}
-
 // Combined site content structure stored in Edge Config
 export interface SiteContent {
   menu: MenuContent;
@@ -72,6 +68,13 @@ export interface IconDefinition {
 
 export interface IconsContent {
   icons: IconDefinition[];
+}
+
+// Page header content shared across pages
+export interface PageHeader {
+  title: string;
+  subtitle: string;
+  icon: string;
 }
 
 // About page content structure
@@ -91,8 +94,30 @@ export interface AboutContact {
 }
 
 export interface AboutContent {
-  title: string;
+  pageHeader: PageHeader;
   intro: AboutIntro;
   skills: AboutSkills;
   contact: AboutContact;
+}
+
+// Projects page content structure
+export interface ProjectsContent {
+  pageHeader: PageHeader;
+  projects: Project[];
+}
+
+// Contact page content structure
+export interface ContactSection {
+  heading: string;
+  description?: string;
+}
+
+export interface ContactSections {
+  email: ContactSection;
+  connect: ContactSection;
+}
+
+export interface ContactContent {
+  pageHeader: PageHeader;
+  sections: ContactSections;
 }

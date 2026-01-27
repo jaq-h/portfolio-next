@@ -15,10 +15,14 @@ export type {
   SiteContent,
   IconDefinition,
   IconsContent,
+  PageHeader,
   AboutContent,
   AboutIntro,
   AboutSkills,
   AboutContact,
+  ContactContent,
+  ContactSection,
+  ContactSections,
 } from "./types";
 
 // Fetcher functions (server-side)
@@ -27,6 +31,7 @@ export {
   getProjectsContent,
   getIconsContent,
   getAboutContent,
+  getContactContent,
   getAllContent,
   REVALIDATE_SECONDS,
 } from "./fetcher";
@@ -43,4 +48,6 @@ export {
   useIcon,
   useProfile,
   useFooter,
+  useAboutContent,
+  useContactContent,
 } from "./provider";

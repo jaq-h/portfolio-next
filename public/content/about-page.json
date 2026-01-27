@@ -1,5 +1,9 @@
 {
-  "title": "About Me",
+  "pageHeader": {
+    "title": "About Me",
+    "subtitle": "Software developer passionate about building modern web applications",
+    "icon": "user"
+  },
   "intro": {
     "heading": "Hello, my name is Jacques Hebert, but you can call me Jaq",
     "text": "I'm a software developer passionate about building modern web and desktop applications. I enjoy exploring new technologies and creating tools that solve real problems."

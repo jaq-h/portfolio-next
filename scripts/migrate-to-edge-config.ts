@@ -1,7 +1,7 @@
 /**
  * Migration Script: Push local JSON content to Vercel Edge Config
  *
- * This script reads your local menu.json and projects.json files
+ * This script reads your local JSON content files from public/content/
  * and uploads them to Vercel Edge Config for production use.
  *
  * Prerequisites:
@@ -23,6 +23,14 @@ import { join } from "path";
 
 // Edge Config API endpoint
 const EDGE_CONFIG_API = "https://api.vercel.com/v1/edge-config";
+
+// Type definitions matching the content schema
+
+interface PageHeader {
+  title: string;
+  subtitle: string;
+  icon: string;
+}
 
 interface MenuContent {
   profile: {
@@ -47,6 +55,7 @@ interface MenuContent {
 }
 
 interface ProjectsContent {
+  pageHeader: PageHeader;
   projects: Array<{
     title: string;
     description: string;
@@ -67,7 +76,7 @@ interface ProjectsContent {
 }
 
 interface AboutContent {
-  title: string;
+  pageHeader: PageHeader;
   intro: {
     heading: string;
     text: string;
@@ -79,6 +88,19 @@ interface AboutContent {
   contact: {
     heading: string;
     text: string;
+  };
+}
+
+interface ContactContent {
+  pageHeader: PageHeader;
+  sections: {
+    email: {
+      heading: string;
+      description?: string;
+    };
+    connect: {
+      heading: string;
+    };
   };
 }
 
@@ -105,37 +127,51 @@ async function main() {
 
   console.log("📦 Reading local JSON files...\n");
 
-  // Read local JSON files
-  const publicDir = join(process.cwd(), "public");
+  // Read local JSON files from public/content/
+  const contentDir = join(process.cwd(), "public", "content");
 
   let menu: MenuContent;
   let projects: ProjectsContent;
   let about: AboutContent;
+  let contact: ContactContent;
 
   try {
-    const menuPath = join(publicDir, "menu.json");
+    const menuPath = join(contentDir, "menu-page.json");
     menu = JSON.parse(readFileSync(menuPath, "utf-8"));
-    console.log("  ✓ menu.json loaded");
+    console.log("  ✓ menu-page.json loaded");
   } catch (error) {
-    console.error("  ✗ Failed to read menu.json:", error);
+    console.error("  ✗ Failed to read menu-page.json:", error);
     process.exit(1);
   }
 
   try {
-    const projectsPath = join(publicDir, "projects.json");
+    const projectsPath = join(contentDir, "projects-page.json");
     projects = JSON.parse(readFileSync(projectsPath, "utf-8"));
-    console.log("  ✓ projects.json loaded");
+    console.log("  ✓ projects-page.json loaded");
+    console.log(`    - Page header: "${projects.pageHeader.title}"`);
+    console.log(`    - ${projects.projects.length} projects found`);
   } catch (error) {
-    console.error("  ✗ Failed to read projects.json:", error);
+    console.error("  ✗ Failed to read projects-page.json:", error);
     process.exit(1);
   }
 
   try {
-    const aboutPath = join(publicDir, "about.json");
+    const aboutPath = join(contentDir, "about-page.json");
     about = JSON.parse(readFileSync(aboutPath, "utf-8"));
-    console.log("  ✓ about.json loaded");
+    console.log("  ✓ about-page.json loaded");
+    console.log(`    - Page header: "${about.pageHeader.title}"`);
   } catch (error) {
-    console.error("  ✗ Failed to read about.json:", error);
+    console.error("  ✗ Failed to read about-page.json:", error);
+    process.exit(1);
+  }
+
+  try {
+    const contactPath = join(contentDir, "contact-page.json");
+    contact = JSON.parse(readFileSync(contactPath, "utf-8"));
+    console.log("  ✓ contact-page.json loaded");
+    console.log(`    - Page header: "${contact.pageHeader.title}"`);
+  } catch (error) {
+    console.error("  ✗ Failed to read contact-page.json:", error);
     process.exit(1);
   }
 
@@ -146,6 +182,7 @@ async function main() {
     { operation: "upsert", key: "menu", value: menu },
     { operation: "upsert", key: "projects", value: projects },
     { operation: "upsert", key: "about", value: about },
+    { operation: "upsert", key: "contact", value: contact },
     { operation: "upsert", key: "icons", value: { icons: [] } }, // Empty icons array, to be populated later
   ];
 
@@ -166,12 +203,20 @@ async function main() {
 
     const result = await response.json();
     console.log("  ✓ menu uploaded");
-    console.log("  ✓ projects uploaded");
-    console.log("  ✓ about uploaded");
+    console.log("  ✓ projects uploaded (with pageHeader)");
+    console.log("  ✓ about uploaded (with pageHeader)");
+    console.log("  ✓ contact uploaded (with pageHeader)");
     console.log("  ✓ icons placeholder created");
 
     console.log("\n✅ Migration complete!\n");
     console.log("Your content is now available in Edge Config.");
+    console.log("");
+    console.log("Content structure:");
+    console.log("  - menu: profile, navigation, externalLinks, footer");
+    console.log("  - projects: pageHeader + projects array");
+    console.log("  - about: pageHeader + intro, skills, contact sections");
+    console.log("  - contact: pageHeader + sections (email, connect)");
+    console.log("  - icons: placeholder for dynamic icon loading");
     console.log("");
     console.log("Next steps:");
     console.log(
