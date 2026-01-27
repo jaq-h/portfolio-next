@@ -4,14 +4,19 @@ import Image from "next/image";
 import Iframe from "@/app/components/media/Iframe";
 import Icon from "@/app/components/media/Icon";
 import { PageContainer, Card, Button } from "@/app/components/ui";
-import { useProjects } from "@/lib/content/provider";
+import { useProjects, useProjectsHeader } from "@/lib/content/provider";
 
 export default function Projects() {
   // Get projects from React Context (fetched server-side in layout)
   const projects = useProjects();
+  const pageHeader = useProjectsHeader();
 
   return (
-    <PageContainer title="Technical Projects">
+    <PageContainer
+      title={pageHeader.title}
+      subtitle={pageHeader.subtitle}
+      icon={pageHeader.icon}
+    >
       {projects &&
         projects.map((project, index) => (
           <Card
@@ -41,7 +46,7 @@ export default function Projects() {
                   {project.techStack &&
                     project.techStack.map((techPill, index) => (
                       <li
-                        className="list-none inline-flex py-1 pr-5"
+                        className="list-none inline-flex items-center gap-2 py-1 pr-5"
                         key={`tech-pill-${index}`}
                       >
                         {techPill.icon && <Icon icon={techPill.icon} />}

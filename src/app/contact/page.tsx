@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { PageContainer, Card, Button } from "@/app/components/ui";
-import { useExternalLinks } from "@/lib/content/provider";
+import { useExternalLinks, useContactContent } from "@/lib/content/provider";
 
 declare global {
   interface Window {
@@ -34,8 +34,10 @@ export default function Contact() {
   const recaptchaRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<number | null>(null);
 
-  // Get external links from React Context (fetched server-side in layout)
+  // Get content from React Context (fetched server-side in layout)
   const externalLinks = useExternalLinks();
+  const contactContent = useContactContent();
+  const { pageHeader, sections } = contactContent;
 
   useEffect(() => {
     const initRecaptcha = () => {
@@ -173,14 +175,17 @@ export default function Contact() {
   };
 
   return (
-    <PageContainer title="Contact">
+    <PageContainer
+      title={pageHeader.title}
+      subtitle={pageHeader.subtitle}
+      icon={pageHeader.icon}
+    >
       <Card>
         <h2 className="text-xl font-bold text-white mb-4">
-          Get My Email Address
+          {sections.email.heading}
         </h2>
         <p className="text-gray-300 leading-relaxed mb-6">
-          To protect against spam and bots, please verify you&apos;re human to
-          reveal my email address.
+          {sections.email.description}
         </p>
 
         {!isVerified ? (
@@ -272,7 +277,7 @@ export default function Contact() {
 
       <Card>
         <h2 className="text-xl font-bold text-white mb-4">
-          Other Ways to Connect
+          {sections.connect.heading}
         </h2>
         <div className="flex flex-wrap gap-3">
           {externalLinks.map((link, index) => (

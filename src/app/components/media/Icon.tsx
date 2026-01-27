@@ -52,7 +52,8 @@ const iconMap: Record<string, string> = {
   bolt: "bolt",
   vite: "bolt",
   server: "server",
-  vercel: "server",
+  vercel: "vercel",
+  nextjs: "nextjs",
 
   // Databases
   "icon-postgres": "postgres",

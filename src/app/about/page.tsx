@@ -1,14 +1,18 @@
-import { getAboutContent } from "@/lib/content";
+"use client";
+
 import { PageContainer, Card, Pill } from "@/app/components/ui";
+import { useAboutContent } from "@/lib/content/provider";
 
-// ISR revalidation time in seconds (must be static for Next.js)
-export const revalidate = 60;
-
-export default async function About() {
-  const about = await getAboutContent();
+export default function About() {
+  const about = useAboutContent();
+  const { pageHeader } = about;
 
   return (
-    <PageContainer title={about.title}>
+    <PageContainer
+      title={pageHeader.title}
+      subtitle={pageHeader.subtitle}
+      icon={pageHeader.icon}
+    >
       <Card>
         <h2 className="text-xl font-bold text-white pb-1">
           {about.intro.heading}

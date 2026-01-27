@@ -32,7 +32,7 @@ export default async function RootLayout({
 }>) {
   // Fetch all content server-side from Edge Config (with ISR caching)
   // Falls back to local JSON files if Edge Config is not configured
-  const { menu, projects, icons } = await getAllContent();
+  const { menu, projects, icons, about, contact } = await getAllContent();
 
   return (
     <html lang="en">
@@ -68,7 +68,13 @@ export default async function RootLayout({
           - Tablet (md - lg): Top bar with inline nav items
           - Desktop (>= lg): Fixed menu bar (sidebar style) with ml-64 on content
         */}
-        <ContentProvider menu={menu} projects={projects} icons={icons}>
+        <ContentProvider
+          menu={menu}
+          projects={projects}
+          icons={icons}
+          about={about}
+          contact={contact}
+        >
           <MenuBar />
           <main className="lg:ml-64">{children}</main>
         </ContentProvider>
