@@ -119,7 +119,7 @@ export default function Contact() {
         <h1 className="text-3xl font-bold text-white mb-8">Contact</h1>
 
         <div className="space-y-6">
-          <section className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+          <section className="bg-slate-800 border border-purple-950/50 rounded-xl p-6">
             <h2 className="text-xl font-semibold text-white mb-4">
               Get My Email Address
             </h2>
@@ -150,7 +150,7 @@ export default function Contact() {
                   className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                     isVerifying || !captchaToken
                       ? "bg-slate-600 text-slate-400 cursor-not-allowed"
-                      : "bg-blue-600 text-white hover:bg-blue-700"
+                      : "bg-purple-950 text-white hover:bg-purple-900 border border-purple-800"
                   }`}
                 >
                   {isVerifying ? "Verifying..." : "Reveal Email Address"}
@@ -214,7 +214,7 @@ export default function Contact() {
             )}
           </section>
 
-          <section className="bg-slate-800 border border-slate-700 rounded-xl p-6">
+          <section className="bg-slate-800 border border-purple-950/50 rounded-xl p-6">
             <h2 className="text-xl font-semibold text-white mb-4">
               Other Ways to Connect
             </h2>
@@ -230,7 +230,7 @@ export default function Contact() {
                       : undefined
                   }
                   download={link.download ? true : undefined}
-                  className="flex items-center gap-2 px-4 py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-4 py-2.5 bg-slate-700 hover:bg-purple-950 hover:border-purple-800 border border-slate-600 text-white rounded-lg transition-colors"
                 >
                   <Icon icon={link.icon} variant="ui" />
                   <span>{link.title}</span>

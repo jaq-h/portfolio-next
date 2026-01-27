@@ -1,7 +1,12 @@
 import { createClient } from "@vercel/edge-config";
 import { readFileSync } from "fs";
 import { join } from "path";
-import type { MenuContent, ProjectsContent, IconsContent } from "./types";
+import type {
+  MenuContent,
+  ProjectsContent,
+  IconsContent,
+  AboutContent,
+} from "./types";
 
 // Create Edge Config client if connection string is available
 const edgeConfig = process.env.EDGE_CONFIG
@@ -17,6 +22,7 @@ const EDGE_CONFIG_KEYS = {
   menu: "menu",
   projects: "projects",
   icons: "icons",
+  about: "about",
 } as const;
 
 /**
@@ -95,26 +101,48 @@ export async function getIconsContent(): Promise<IconsContent> {
 }
 
 /**
+ * Fetch about content from Edge Config with local fallback
+ */
+export async function getAboutContent(): Promise<AboutContent> {
+  try {
+    if (edgeConfig) {
+      const about = await edgeConfig.get<AboutContent>(EDGE_CONFIG_KEYS.about);
+      if (about) {
+        return about;
+      }
+    }
+    // Fallback to local JSON
+    return readLocalJson<AboutContent>("about.json");
+  } catch (error) {
+    console.error("Error fetching about content:", error);
+    return getFallbackAbout();
+  }
+}
+
+/**
  * Fetch all content in a single call (more efficient)
  */
 export async function getAllContent(): Promise<{
   menu: MenuContent;
   projects: ProjectsContent;
   icons: IconsContent;
+  about: AboutContent;
 }> {
   try {
     if (edgeConfig) {
       // Fetch all keys in parallel from Edge Config
-      const [menu, projects, icons] = await Promise.all([
+      const [menu, projects, icons, about] = await Promise.all([
         edgeConfig.get<MenuContent>(EDGE_CONFIG_KEYS.menu),
         edgeConfig.get<ProjectsContent>(EDGE_CONFIG_KEYS.projects),
         edgeConfig.get<IconsContent>(EDGE_CONFIG_KEYS.icons),
+        edgeConfig.get<AboutContent>(EDGE_CONFIG_KEYS.about),
       ]);
 
       return {
         menu: menu || readLocalJson<MenuContent>("menu.json"),
         projects: projects || readLocalJson<ProjectsContent>("projects.json"),
         icons: icons || { icons: [] },
+        about: about || readLocalJson<AboutContent>("about.json"),
       };
     }
 
@@ -123,6 +151,7 @@ export async function getAllContent(): Promise<{
       menu: readLocalJson<MenuContent>("menu.json"),
       projects: readLocalJson<ProjectsContent>("projects.json"),
       icons: { icons: [] },
+      about: readLocalJson<AboutContent>("about.json"),
     };
   } catch (error) {
     console.error("Error fetching all content:", error);
@@ -130,8 +159,41 @@ export async function getAllContent(): Promise<{
       menu: getFallbackMenu(),
       projects: { projects: [] },
       icons: { icons: [] },
+      about: getFallbackAbout(),
     };
   }
+}
+
+/**
+ * Fallback about content when all else fails
+ */
+function getFallbackAbout(): AboutContent {
+  return {
+    title: "About Me",
+    intro: {
+      heading: "Hello, I'm Jacques Hebert",
+      text: "I'm a software developer passionate about building modern web applications and exploring new technologies. I enjoy working with TypeScript, React, Rust, and creating tools that solve real problems.",
+    },
+    skills: {
+      heading: "Skills",
+      items: [
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "Next.js",
+        "Rust",
+        "Tauri",
+        "Node.js",
+        "PostgreSQL",
+        "TailwindCSS",
+        "Git",
+      ],
+    },
+    contact: {
+      heading: "Get In Touch",
+      text: "Feel free to reach out through GitHub or LinkedIn. I'm always interested in collaborating on interesting projects or discussing new opportunities.",
+    },
+  };
 }
 
 /**
@@ -142,7 +204,7 @@ function getFallbackMenu(): MenuContent {
     profile: {
       name: "Jacques Hebert",
       title: "Software Developer",
-      image: "/bugs.png",
+      image: "/profile.svg",
     },
     navigation: [
       { title: "About", path: "/about", icon: "user" },

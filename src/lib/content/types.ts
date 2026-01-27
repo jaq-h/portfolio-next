@@ -73,3 +73,26 @@ export interface IconDefinition {
 export interface IconsContent {
   icons: IconDefinition[];
 }
+
+// About page content structure
+export interface AboutIntro {
+  heading: string;
+  text: string;
+}
+
+export interface AboutSkills {
+  heading: string;
+  items: string[];
+}
+
+export interface AboutContact {
+  heading: string;
+  text: string;
+}
+
+export interface AboutContent {
+  title: string;
+  intro: AboutIntro;
+  skills: AboutSkills;
+  contact: AboutContact;
+}

@@ -1,0 +1,26 @@
+{
+  "title": "About Me",
+  "intro": {
+    "heading": "Hello, I'm Jacques Hebert",
+    "text": "I'm a software developer passionate about building modern web applications and exploring new technologies. I enjoy working with TypeScript, React, Rust, and creating tools that solve real problems."
+  },
+  "skills": {
+    "heading": "Skills",
+    "items": [
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Rust",
+      "Tauri",
+      "Node.js",
+      "PostgreSQL",
+      "TailwindCSS",
+      "Git"
+    ]
+  },
+  "contact": {
+    "heading": "Get In Touch",
+    "text": "Feel free to reach out through GitHub or LinkedIn. I'm always interested in collaborating on interesting projects or discussing new opportunities."
+  }
+}

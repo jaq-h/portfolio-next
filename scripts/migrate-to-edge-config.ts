@@ -66,6 +66,22 @@ interface ProjectsContent {
   }>;
 }
 
+interface AboutContent {
+  title: string;
+  intro: {
+    heading: string;
+    text: string;
+  };
+  skills: {
+    heading: string;
+    items: string[];
+  };
+  contact: {
+    heading: string;
+    text: string;
+  };
+}
+
 async function main() {
   // Check for required environment variables
   const edgeConfigId = process.env.EDGE_CONFIG_ID;
@@ -75,7 +91,9 @@ async function main() {
     console.error("❌ Error: Missing required environment variables");
     console.error("");
     console.error("Please set the following environment variables:");
-    console.error("  EDGE_CONFIG_ID     - Your Edge Config ID from Vercel Dashboard");
+    console.error(
+      "  EDGE_CONFIG_ID     - Your Edge Config ID from Vercel Dashboard",
+    );
     console.error("  EDGE_CONFIG_TOKEN  - Your Edge Config write token");
     console.error("");
     console.error("Example:");
@@ -92,6 +110,7 @@ async function main() {
 
   let menu: MenuContent;
   let projects: ProjectsContent;
+  let about: AboutContent;
 
   try {
     const menuPath = join(publicDir, "menu.json");
@@ -111,12 +130,22 @@ async function main() {
     process.exit(1);
   }
 
+  try {
+    const aboutPath = join(publicDir, "about.json");
+    about = JSON.parse(readFileSync(aboutPath, "utf-8"));
+    console.log("  ✓ about.json loaded");
+  } catch (error) {
+    console.error("  ✗ Failed to read about.json:", error);
+    process.exit(1);
+  }
+
   console.log("\n🚀 Uploading to Edge Config...\n");
 
   // Prepare the items to update
   const items = [
     { operation: "upsert", key: "menu", value: menu },
     { operation: "upsert", key: "projects", value: projects },
+    { operation: "upsert", key: "about", value: about },
     { operation: "upsert", key: "icons", value: { icons: [] } }, // Empty icons array, to be populated later
   ];
 
@@ -138,14 +167,19 @@ async function main() {
     const result = await response.json();
     console.log("  ✓ menu uploaded");
     console.log("  ✓ projects uploaded");
+    console.log("  ✓ about uploaded");
     console.log("  ✓ icons placeholder created");
 
     console.log("\n✅ Migration complete!\n");
     console.log("Your content is now available in Edge Config.");
     console.log("");
     console.log("Next steps:");
-    console.log("1. Add EDGE_CONFIG to your Vercel project environment variables");
-    console.log("   (Vercel automatically sets this when you connect Edge Config to your project)");
+    console.log(
+      "1. Add EDGE_CONFIG to your Vercel project environment variables",
+    );
+    console.log(
+      "   (Vercel automatically sets this when you connect Edge Config to your project)",
+    );
     console.log("");
     console.log("2. Deploy your project to Vercel");
     console.log("");

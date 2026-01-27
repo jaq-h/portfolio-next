@@ -89,7 +89,7 @@ export default function MenuBar() {
                       onClick={closeMenu}
                       className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                         isActive
-                          ? "bg-blue-600 text-white"
+                          ? "bg-gray-900 text-white"
                           : "text-gray-300 hover:bg-gray-800 hover:text-white"
                       }`}
                     >
@@ -151,7 +151,7 @@ export default function MenuBar() {
                   href={link.path}
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors text-sm whitespace-nowrap ${
                     isActive
-                      ? "bg-blue-600 text-white"
+                      ? "bg-slate-700 text-white"
                       : "text-gray-300 hover:bg-gray-800 hover:text-white"
                   }`}
                 >
@@ -186,7 +186,7 @@ export default function MenuBar() {
               alt="Profile"
               width={100}
               height={100}
-              className="rounded-full mb-4"
+              className="mb-4"
             />
             <h1 className="text-xl font-bold text-white mb-1">
               {profile.name}
@@ -209,7 +209,7 @@ export default function MenuBar() {
                     href={link.path}
                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                       isActive
-                        ? "bg-blue-600 text-white"
+                        ? "bg-purple-950 text-white"
                         : "text-gray-300 hover:bg-gray-800 hover:text-white"
                     }`}
                   >

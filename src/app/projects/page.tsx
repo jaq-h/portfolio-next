@@ -16,17 +16,19 @@ export default function Projects() {
   const projects = useProjects();
 
   return (
-    <div className="px-6 py-10 max-w-5xl">
-      <h1 className="text-3xl font-bold text-white mb-8">Projects</h1>
+    <div className="px-6 py-10">
+      <h1 className="text-3xl font-bold text-white pl-14 mb-8">
+        Technical Projects
+      </h1>
       <div className="space-y-8">
         {projects &&
           projects.map((project, index) => {
             return (
               <div
                 key={`project-${index}`}
-                className="md:flex md:justify-between grid grid-cols-1 p-6 bg-slate-800 border border-slate-700 rounded-xl"
+                className="md:flex md:justify-between grid grid-cols-1 p-6 bg-slate-800 border-2  border-purple-600/50 rounded-xl"
               >
-                <div className="md:w-1/2 w-full lg:px-7 px-5 md:my-0 mb-3">
+                <div className="md:w-1/2 w-full md:my-0 mb-3">
                   <div>
                     <h2 className="text-xl font-bold pb-1">{project.title}</h2>
                     <p>{project.description}</p>
@@ -37,7 +39,7 @@ export default function Projects() {
                         return (
                           <Link
                             key={`project-link-${index}`}
-                            className="inline-flex items-center gap-2 px-3 py-2 bg-slate-900 hover:border-slate-400 border-2 border-slate-500 rounded-md whitespace-nowrap"
+                            className="inline-flex items-center gap-2 px-3 py-2 bg-slate-900 hover:bg-slate-900 hover:border-purple-600 hover:text-purple-600 border-2 border-slate-600 rounded-md whitespace-nowrap transition-colors"
                             href={link.link}
                           >
                             <Icon icon={link.icon} variant="ui" />
@@ -64,11 +66,12 @@ export default function Projects() {
                     </ul>
                   </div>
                 </div>
-                <div className="md:w-1/2 w-full md:grid md:justify-items-end lg:px-7 px-5">
+                <div className="md:w-1/2 w-full md:grid md:justify-items-end">
                   {project.projectMedia.mediaType === "image" &&
                     project.projectMedia.mediaSrc !== "" && (
                       <Image
                         src={project.projectMedia.mediaSrc}
+                        className="rounded-md object-top"
                         width={600}
                         height={600}
                         alt=""

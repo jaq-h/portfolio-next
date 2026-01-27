@@ -15,6 +15,10 @@ export type {
   SiteContent,
   IconDefinition,
   IconsContent,
+  AboutContent,
+  AboutIntro,
+  AboutSkills,
+  AboutContact,
 } from "./types";
 
 // Fetcher functions (server-side)
@@ -22,6 +26,7 @@ export {
   getMenuContent,
   getProjectsContent,
   getIconsContent,
+  getAboutContent,
   getAllContent,
   REVALIDATE_SECONDS,
 } from "./fetcher";
