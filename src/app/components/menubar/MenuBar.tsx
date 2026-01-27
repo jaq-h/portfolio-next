@@ -177,7 +177,7 @@ export default function MenuBar() {
       {/* ==================== */}
       {/* DESKTOP: Sidebar (lg breakpoint and above) */}
       {/* ==================== */}
-      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-64 bg-gray-950 border-r border-gray-800 flex-col z-50">
+      <aside className="hidden lg:flex fixed 2xl:absolute left-0 top-0 h-screen w-64 bg-gray-950 border-r border-gray-800 flex-col z-50">
         {/* Personal Info Section */}
         <div className="p-6 border-b border-gray-800">
           <div className="flex flex-col items-center text-center">
