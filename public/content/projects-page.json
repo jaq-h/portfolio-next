@@ -63,7 +63,7 @@
       ],
       "projectMedia": {
         "mediaType": "image",
-        "mediaSrc": "/blockBuilderPreview.png"
+        "mediaSrc": "/images/blockBuilderPreview.png"
       },
       "techStack": [
         {
@@ -103,7 +103,7 @@
       ],
       "projectMedia": {
         "mediaType": "image",
-        "mediaSrc": "/meshPreview.png"
+        "mediaSrc": "/images/meshPreview.png"
       },
       "techStack": [
         {
@@ -157,7 +157,7 @@
       ],
       "projectMedia": {
         "mediaType": "image",
-        "mediaSrc": "/fratcalpreview.png"
+        "mediaSrc": "/images/fratcalpreview.png"
       },
       "techStack": [
         {
@@ -198,7 +198,7 @@
       ],
       "projectMedia": {
         "mediaType": "image",
-        "mediaSrc": "/priorityQueueGraph.jpg"
+        "mediaSrc": "/images/priorityQueueGraph.jpg"
       },
       "techStack": [
         {
