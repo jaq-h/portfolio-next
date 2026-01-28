@@ -17,11 +17,11 @@ export default function PageContainer({
   return (
     <div className="p-6 md:p-10">
       {/* Page Header */}
-      <header className="lg:px-7 py-5 px-5 max-w-screen-xl mb-10 bg-slate-950 border-2 border-purple-900/80 rounded-xl ">
+      <header className="lg:px-7 py-5 px-5 max-w-screen-lg mb-8 bg-slate-950 border-2 border-purple-900/80 rounded-xl ">
         <div className="flex items-center gap-4">
           {/* Optional Icon */}
           {icon && (
-            <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-purple-900/80 rounded-xl flex items-center justify-center">
+            <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-purple-900 rounded-xl flex items-center justify-center">
               <div className="scale-125 md:scale-150">
                 <Icon icon={icon} variant="ui" />
               </div>
