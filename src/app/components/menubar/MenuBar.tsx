@@ -45,7 +45,7 @@ export default function MenuBar() {
       {/* ==================== */}
       {/* MOBILE: Hamburger Menu (below md breakpoint) */}
       {/* ==================== */}
-      <header className="md:hidden bg-gray-950 border-b border-gray-800">
+      <header className="md:hidden bg-gray-950 border-b  border-purple-800/50">
         <div className="flex items-center justify-between px-4 h-16">
           <div className="flex items-center gap-3 min-w-0">
             <Image
@@ -177,9 +177,9 @@ export default function MenuBar() {
       {/* ==================== */}
       {/* DESKTOP: Sidebar (lg breakpoint and above) */}
       {/* ==================== */}
-      <aside className="hidden lg:flex fixed 2xl:absolute left-0 top-0 h-screen w-64 bg-gray-950 border-r border-gray-800 flex-col z-50">
+      <aside className="hidden lg:flex fixed 2xl:sticky 2xl:flex-shrink-0 left-0 top-0 h-screen w-64 bg-gray-950 border-r-2 border-purple-800/80 flex-col z-50">
         {/* Personal Info Section */}
-        <div className="p-6 border-b border-gray-800">
+        <div className="p-6 border-b-2 border-purple-800/80">
           <div className="flex flex-col items-center text-center">
             <Image
               src={profile.image}

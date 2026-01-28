@@ -75,9 +75,9 @@ export default async function RootLayout({
           about={about}
           contact={contact}
         >
-          <div className="2xl:max-w-[1800px] 2xl:mx-auto 2xl:relative 2xl:min-h-screen">
+          <div className="2xl:max-w-[1800px] 2xl:mx-auto 2xl:flex">
             <MenuBar />
-            <main className="lg:ml-64">{children}</main>
+            <main className="lg:ml-64 2xl:ml-0 2xl:flex-1">{children}</main>
           </div>
         </ContentProvider>
       </body>

@@ -23,12 +23,12 @@ export default function Projects() {
             key={`project-${index}`}
             className="md:flex md:justify-between grid grid-cols-1"
           >
-            <div className="md:w-1/2 w-full md:my-0 mb-3">
+            <div className="md:w-1/2 w-full pr-6 md:my-0 mb-3">
               <div>
                 <h2 className="text-xl font-bold pb-1">{project.title}</h2>
-                <p>{project.description}</p>
+                <p className="lg:pr-2">{project.description}</p>
               </div>
-              <div className="pt-6 pb-3 flex flex-wrap gap-3">
+              <div className="pt-5 flex flex-wrap gap-3">
                 {project.projectLinks &&
                   project.projectLinks.map((link, index) => (
                     <Button
@@ -40,8 +40,10 @@ export default function Projects() {
                     </Button>
                   ))}
               </div>
-              <div className="py-4">
-                <h3 className="pb-2">Technology Used:</h3>
+              <div className="pt-5">
+                <h3 className="pb-2">
+                  <strong>Tech Stack:</strong>
+                </h3>
                 <ul>
                   {project.techStack &&
                     project.techStack.map((techPill, index) => (
