@@ -16,6 +16,10 @@
     "fresh": "rm -rf node_modules package-lock.json .next && npm install",
     "prebuild": "npm run clean",
     "migrate:edge-config": "tsx scripts/migrate-to-edge-config.ts",
+    "sync:resume": "tsx scripts/sync-resume.ts",
+    "sync:media": "tsx scripts/sync-media.ts",
+    "sync:images": "tsx scripts/sync-media.ts --images",
+    "sync:icons": "tsx scripts/sync-media.ts --icons",
     "revalidate": "curl -X POST http://localhost:3000/api/revalidate -H 'Authorization: Bearer $REVALIDATION_SECRET' -H 'Content-Type: application/json' -d '{\"all\": true}'"
   },
   "dependencies": {
@@ -33,6 +37,7 @@
     "@types/node": "^22.15.30",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.6",
+    "dotenv": "^17.2.3",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.1.4",
     "postcss": "^8.5.6",
