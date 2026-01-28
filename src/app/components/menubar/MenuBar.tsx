@@ -197,10 +197,10 @@ export default function MenuBar() {
 
         {/* Site Navigation */}
         <nav className="p-4" aria-label="Main navigation">
-          <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 px-3">
+          <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 px-3">
             Navigation
           </p>
-          <ul className="space-y-1">
+          <ul className="space-y-1.5">
             {navigation.map((link, index) => {
               const isActive = pathname === link.path;
               return (
@@ -210,7 +210,7 @@ export default function MenuBar() {
                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                       isActive
                         ? "bg-purple-900 text-white"
-                        : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                        : "text-gray-300 bg-slate-900 active:bg-slate-900 active:border-purple-800/80 hover:border-slate-700 hover:bg-slate-950 border-2 border-slate-600"
                     }`}
                   >
                     <Icon icon={link.icon} variant="ui" />
@@ -224,10 +224,10 @@ export default function MenuBar() {
 
         {/* External Links - positioned directly below nav with margin */}
         <div className="px-4 pb-4" aria-label="External links">
-          <p className="text-xs text-gray-500 uppercase tracking-wider mb-3 px-3">
+          <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 px-3">
             Connect
           </p>
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             {externalLinks.map((link, index) => (
               <a
                 key={index}
