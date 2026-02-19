@@ -1,0 +1,16 @@
+{
+  "pageHeader": {
+    "title": "Contact",
+    "subtitle": "Get in touch — I'm always open to new opportunities and collaborations",
+    "icon": "mail"
+  },
+  "sections": {
+    "email": {
+      "heading": "Get My Email Address",
+      "description": "To protect against spam and bots, please verify you're human to reveal my email address."
+    },
+    "connect": {
+      "heading": "Other Ways to Connect"
+    }
+  }
+}

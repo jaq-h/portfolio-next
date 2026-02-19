@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "name": "jaq-h",
+    "title": "Software Developer",
+    "image": "/images/profile.png"
+  },
+  "navigation": [
+    {
+      "title": "About",
+      "path": "/about",
+      "icon": "user"
+    },
+    {
+      "title": "Projects",
+      "path": "/projects",
+      "icon": "folder"
+    },
+    {
+      "title": "Contact",
+      "path": "/contact",
+      "icon": "mail"
+    }
+  ],
+  "externalLinks": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/jaq-h",
+      "icon": "github"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/jaq-h/",
+      "icon": "linkedin"
+    },
+    {
+      "title": "Resume",
+      "url": "https://hneotlc794xsxlrh.public.blob.vercel-storage.com/documents/resume.pdf",
+      "icon": "document",
+      "download": true
+    }
+  ]
+}

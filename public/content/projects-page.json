@@ -1,0 +1,240 @@
+{
+  "pageHeader": {
+    "title": "Technical Projects",
+    "subtitle": "A collection of my work showcasing various technologies and problem-solving approaches",
+    "icon": "folder"
+  },
+  "projects": [
+    {
+      "title": "Dev Portfolio",
+      "description": "A modern, responsive developer portfolio built from scratch with Next.js 15 and React 19. Features server-side rendering, dynamic content management via Vercel Edge Config, and a clean, minimalist design with TailwindCSS.",
+      "projectLinks": [
+        {
+          "title": "Source Code",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/portfolio-next"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": ""
+      },
+      "techStack": [
+        {
+          "name": "Next.js",
+          "icon": "nextjs"
+        },
+        {
+          "name": "React",
+          "icon": "react"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "TailwindCSS",
+          "icon": "tailwind"
+        },
+        {
+          "name": "Vercel Edge Config",
+          "icon": "vercel"
+        },
+        {
+          "name": "Vercel Blob",
+          "icon": "vercel"
+        }
+      ]
+    },
+    {
+      "title": "Block Builder",
+      "description": "Drag and Drop Trade Strategy Assembly",
+      "projectLinks": [
+        {
+          "title": "App Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/block-builder-3"
+        },
+        {
+          "title": "Live Demo",
+          "icon": "link",
+          "link": "https://block-builder2.vercel.app/"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/images/blockBuilderPreview.png"
+      },
+      "techStack": [
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "Kraken WebSocket API",
+          "icon": "crypto"
+        },
+        {
+          "name": "Vite",
+          "icon": "vite"
+        },
+        {
+          "name": "Vercel",
+          "icon": "vercel"
+        }
+      ]
+    },
+    {
+      "title": "Mesh Media Player",
+      "description": "Play your music and video library all in one place!",
+      "projectLinks": [
+        {
+          "title": "App Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/mesh"
+        },
+        {
+          "title": "Demo Coming Soon!"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/images/meshPreview.png"
+      },
+      "techStack": [
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "Rust",
+          "icon": "rust"
+        },
+        {
+          "name": "Tauri",
+          "icon": "tauri"
+        },
+        {
+          "name": "PostgreSQL",
+          "icon": "postgres"
+        },
+        {
+          "name": "Spotify SDK/Web API",
+          "icon": "spotify"
+        },
+        {
+          "name": "YouTube API",
+          "icon": "youtube"
+        },
+        {
+          "name": "TailwindCSS",
+          "icon": "tailwind"
+        }
+      ]
+    },
+    {
+      "title": "Fractal Design",
+      "description": "Customize your own fractal animation with different colors and effects!",
+      "projectLinks": [
+        {
+          "title": "App Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/fractal-design"
+        },
+        {
+          "title": "Live Demo",
+          "icon": "link",
+          "link": "https://fractal-design.now.sh/"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/images/fratcalpreview.png"
+      },
+      "techStack": [
+        {
+          "name": "JavaScript",
+          "icon": "javascript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "p5.js",
+          "icon": "p5js"
+        },
+        {
+          "name": "Semantic UI",
+          "icon": "semanticui"
+        },
+        {
+          "name": "Material UI",
+          "icon": "materialui"
+        },
+        {
+          "name": "Vercel",
+          "icon": "vercel"
+        }
+      ]
+    },
+    {
+      "title": "Priority Queue",
+      "description": "Who's next in line?",
+      "projectLinks": [
+        {
+          "title": "Project Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/priorityQueue"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/images/priorityQueueGraph.jpg"
+      },
+      "techStack": [
+        {
+          "name": "C++",
+          "icon": "cpp"
+        }
+      ]
+    },
+    {
+      "title": "Tube Runner",
+      "description": "How far can you make it through space time?",
+      "projectLinks": [
+        {
+          "title": "Project Repository",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/tube-runner"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": ""
+      },
+      "techStack": [
+        {
+          "name": "JavaScript",
+          "icon": "javascript"
+        },
+        {
+          "name": "React.js",
+          "icon": "react"
+        },
+        {
+          "name": "Three.js",
+          "icon": "threejs"
+        }
+      ]
+    }
+  ]
+}

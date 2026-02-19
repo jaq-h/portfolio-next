@@ -1,0 +1,19 @@
+{
+  "pageHeader": {
+    "title": "About Me",
+    "subtitle": "Software developer passionate about building modern web applications",
+    "icon": "user"
+  },
+  "intro": {
+    "heading": "Hello, my name is [Redacted], but you can call me Jaq",
+    "text": "I'm a software developer passionate about building modern web and desktop applications. I enjoy exploring new technologies and creating tools that solve real problems."
+  },
+  "skills": {
+    "heading": "Most Recent Technolgies Used",
+    "items": ["TypeScript", "React.js", "Next.js", "Rust", "Github"]
+  },
+  "contact": {
+    "heading": "Other Strongsuits",
+    "text": "Acessibility Compliance, User Interface Design, QA Testing/Automation, AI Prompting and Training "
+  }
+}
