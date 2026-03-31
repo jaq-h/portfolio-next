@@ -1,10 +1,8 @@
-"use client";
-
 import { PageContainer, Card, Pill } from "@/app/components/ui";
-import { useAboutContent } from "@/lib/content/provider";
+import { getAboutContent } from "@/lib/content/fetcher";
 
-export default function About() {
-  const about = useAboutContent();
+export default async function About() {
+  const about = await getAboutContent();
   const { pageHeader } = about;
 
   return (
