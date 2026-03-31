@@ -153,6 +153,7 @@ async function uploadFile(
   localPath: string,
   blobFolder: string,
   relativePath: string,
+  cacheControlMaxAge?: number,
 ): Promise<UploadResult> {
   const fileContent = readFileSync(localPath);
   const blobPath = `${blobFolder}/${relativePath}`;
@@ -162,6 +163,7 @@ async function uploadFile(
     contentType: getContentType(localPath),
     allowOverwrite: true,
     addRandomSuffix: false,
+    ...(cacheControlMaxAge !== undefined ? { cacheControlMaxAge } : {}),
   });
 
   return {
@@ -195,7 +197,8 @@ async function syncImages(dryRun: boolean): Promise<UploadResult[]> {
     );
 
     if (!dryRun) {
-      const result = await uploadFile(file, "images", relativePath);
+      // 1 hour TTL — ensures updated images are visible in production within an hour
+      const result = await uploadFile(file, "images", relativePath, 3600);
       results.push(result);
       console.log(`   ✓ Uploaded to: ${result.blobUrl}`);
     }
@@ -228,7 +231,8 @@ async function syncIcons(dryRun: boolean): Promise<UploadResult[]> {
     );
 
     if (!dryRun) {
-      const result = await uploadFile(file, "icons", relativePath);
+      // 1 year TTL — icons are immutable per filename
+      const result = await uploadFile(file, "icons", relativePath, 31536000);
       results.push(result);
       console.log(`   ✓ Uploaded to: ${result.blobUrl}`);
     }
