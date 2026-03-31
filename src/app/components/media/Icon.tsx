@@ -64,6 +64,14 @@ const iconMap: Record<string, string> = {
   semanticui: "semanticui",
   "sliders horizontal": "materialui",
   materialui: "materialui",
+  radix: "radix",
+
+  // Rust Ecosystem
+  tokio: "tokio",
+  actix: "actix",
+
+  // Trading/Finance
+  tradingview: "tradingview",
 };
 
 // Icons available in UI variant (white/grey)

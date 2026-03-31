@@ -10,7 +10,7 @@ type PageContainerProps = {
 
 export default function PageContainer({
   title,
-  subtitle,
+  // subtitle,
   icon,
   children,
 }: PageContainerProps) {

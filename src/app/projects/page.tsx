@@ -1,15 +1,11 @@
-"use client";
-
 import Image from "next/image";
 import Iframe from "@/app/components/media/Iframe";
 import Icon from "@/app/components/media/Icon";
 import { PageContainer, Card, Button } from "@/app/components/ui";
-import { useProjects, useProjectsHeader } from "@/lib/content/provider";
+import { getProjectsContent } from "@/lib/content/fetcher";
 
-export default function Projects() {
-  // Get projects from React Context (fetched server-side in layout)
-  const projects = useProjects();
-  const pageHeader = useProjectsHeader();
+export default async function Projects() {
+  const { projects, pageHeader } = await getProjectsContent();
 
   return (
     <PageContainer

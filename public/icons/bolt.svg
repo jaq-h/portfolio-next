@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-  <defs>
-    <linearGradient id="vite-purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#41D1FF"/>
-      <stop offset="100%" stop-color="#BD34FE"/>
-    </linearGradient>
-    <linearGradient id="vite-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFBD4F"/>
-      <stop offset="100%" stop-color="#FF9A00"/>
-    </linearGradient>
-  </defs>
-  <!-- Outer purple bolt -->
-  <path d="M21 2.5L9 22l.5-9.5L3 11l18-8.5z" fill="url(#vite-purple)"/>
-  <!-- Inner yellow bolt -->
-  <path d="M14.5 2L11 12h4.5L10 22l1-7.5H7L14.5 2z" fill="url(#vite-yellow)"/>
-</svg>
+<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vite</title><path fill="#646CFF" d="M13.056 23.238a.57.57 0 0 1-1.02-.355v-5.202c0-.63-.512-1.143-1.144-1.143H5.148a.57.57 0 0 1-.464-.903l3.777-5.29c.54-.753 0-1.804-.93-1.804H.57a.574.574 0 0 1-.543-.746.6.6 0 0 1 .08-.157L5.008.78a.57.57 0 0 1 .467-.24h14.589a.57.57 0 0 1 .466.903l-3.778 5.29c-.54.755 0 1.806.93 1.806h5.745c.238 0 .424.138.513.322a.56.56 0 0 1-.063.603z"/></svg>
