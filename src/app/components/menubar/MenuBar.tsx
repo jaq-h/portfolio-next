@@ -3,13 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import Icon from "../media/Icon";
 import { useMenuContent } from "@/lib/content/provider";
 import type { ExternalLink } from "@/lib/content/types";
 
 export default function MenuBar() {
-  const pathname = usePathname();
+  const segment = useSelectedLayoutSegment();
   const [isOpen, setIsOpen] = useState(false);
 
   // Get menu content from React Context (fetched server-side in layout)
@@ -81,13 +81,13 @@ export default function MenuBar() {
           <nav aria-label="Main navigation">
             <ul className="space-y-1">
               {navigation.map((link, index) => {
-                const isActive = pathname === link.path;
+                const isActive = link.path === `/${segment}`;
                 return (
                   <li key={index}>
                     <Link
                       href={link.path}
                       onClick={closeMenu}
-                      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
+                      className={`flex items-center gap-3 px-3 py-2.5 rounded-lg ${
                         isActive
                           ? "bg-gray-900 text-white"
                           : "text-gray-300 hover:bg-gray-800 hover:text-white"
@@ -144,12 +144,12 @@ export default function MenuBar() {
             aria-label="Main navigation"
           >
             {navigation.map((link, index) => {
-              const isActive = pathname === link.path;
+              const isActive = link.path === `/${segment}`;
               return (
                 <Link
                   key={index}
                   href={link.path}
-                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors text-sm whitespace-nowrap ${
+                  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm whitespace-nowrap ${
                     isActive
                       ? "bg-slate-700 text-white"
                       : "text-gray-300 hover:bg-gray-800 hover:text-white"
@@ -194,7 +194,6 @@ export default function MenuBar() {
             <p className="text-sm text-gray-400">{profile.title}</p>
           </div>
         </div>
-
         {/* Site Navigation */}
         <nav className="p-4" aria-label="Main navigation">
           <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 px-3">
@@ -202,12 +201,12 @@ export default function MenuBar() {
           </p>
           <ul className="space-y-1.5">
             {navigation.map((link, index) => {
-              const isActive = pathname === link.path;
+              const isActive = link.path === `/${segment}`;
               return (
                 <li key={index}>
                   <Link
                     href={link.path}
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg ${
                       isActive
                         ? "bg-purple-900 text-white"
                         : "text-gray-300 bg-slate-900 active:bg-slate-900 active:border-purple-800/80 hover:border-slate-700 hover:bg-slate-950 border-2 border-slate-600"
@@ -221,7 +220,6 @@ export default function MenuBar() {
             })}
           </ul>
         </nav>
-
         {/* External Links - positioned directly below nav with margin */}
         <div className="px-4 pb-4" aria-label="External links">
           <p className="text-xs text-gray-500 uppercase tracking-wider mb-2 px-3">
@@ -247,16 +245,14 @@ export default function MenuBar() {
             ))}
           </div>
         </div>
-
         {/* Spacer to push footer to bottom */}
         <div className="flex-1" />
-
-        {/* Footer */}
-        <div className="p-4 border-t border-gray-800">
+        {/*{/* Footer */}
+        {/*<div className="p-4 border-t border-gray-800">
           <p className="text-xs text-gray-500 text-center">
             {footer.copyright}
           </p>
-        </div>
+        </div>*/}
       </aside>
     </>
   );
