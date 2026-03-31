@@ -63,7 +63,7 @@
       ],
       "projectMedia": {
         "mediaType": "image",
-        "mediaSrc": "/images/blockBuilderPreview.png"
+        "mediaSrc": "/images/blockBuilder3.png"
       },
       "techStack": [
         {
@@ -77,6 +77,10 @@
         {
           "name": "Kraken WebSocket API",
           "icon": "crypto"
+        },
+        {
+          "name": "TradingView",
+          "icon": "tradingview"
         },
         {
           "name": "Vite",
@@ -131,8 +135,12 @@
           "icon": "spotify"
         },
         {
-          "name": "YouTube API",
-          "icon": "youtube"
+          "name": "Tokio",
+          "icon": "tokio"
+        },
+        {
+          "name": "Actix Web",
+          "icon": "actix"
         },
         {
           "name": "TailwindCSS",
@@ -147,12 +155,12 @@
         {
           "title": "App Repository",
           "icon": "github",
-          "link": "https://github.com/jaq-h/fractal-design"
+          "link": "https://github.com/jaq-h/fractal3"
         },
         {
           "title": "Live Demo",
           "icon": "link",
-          "link": "https://fractal-design.now.sh/"
+          "link": "https://fractal3.vercel.app/"
         }
       ],
       "projectMedia": {
@@ -161,8 +169,8 @@
       },
       "techStack": [
         {
-          "name": "JavaScript",
-          "icon": "javascript"
+          "name": "TypeScript",
+          "icon": "typescript"
         },
         {
           "name": "React.js",
@@ -173,12 +181,8 @@
           "icon": "p5js"
         },
         {
-          "name": "Semantic UI",
-          "icon": "semanticui"
-        },
-        {
-          "name": "Material UI",
-          "icon": "materialui"
+          "name": "Radix UI",
+          "icon": "radix"
         },
         {
           "name": "Vercel",
