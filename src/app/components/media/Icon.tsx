@@ -72,6 +72,16 @@ const iconMap: Record<string, string> = {
 
   // Trading/Finance
   tradingview: "tradingview",
+
+  // Web3 / Blockchain
+  solidity: "solidity",
+  ethereum: "ethereum",
+  openzeppelin: "openzeppelin",
+  foundry: "foundry",
+  base: "base",
+
+  // Mobile / Platform
+  webview: "webview",
 };
 
 // Icons available in UI variant (white/grey)

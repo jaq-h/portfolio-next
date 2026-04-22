@@ -47,6 +47,51 @@
       ]
     },
     {
+      "title": "Rub3",
+      "description": "A wallet-native software licensing system that replaces username/password auth with on-chain NFT ownership verification. Desktop apps are gated behind ERC-721 tokens — no backend required, no browser needed. The Rust runtime verifies wallet signatures locally and caches sessions for offline use.",
+      "projectLinks": [
+        {
+          "title": "Source Code",
+          "icon": "github",
+          "link": "https://github.com/jaq-h/rub3"
+        }
+      ],
+      "projectMedia": {
+        "mediaType": "image",
+        "mediaSrc": "/images/rub3-arch.svg"
+      },
+      "techStack": [
+        {
+          "name": "Rust",
+          "icon": "rust"
+        },
+        {
+          "name": "Solidity",
+          "icon": "solidity"
+        },
+        {
+          "name": "Ethereum",
+          "icon": "ethereum"
+        },
+        {
+          "name": "OpenZeppelin",
+          "icon": "openzeppelin"
+        },
+        {
+          "name": "Foundry",
+          "icon": "foundry"
+        },
+        {
+          "name": "Base",
+          "icon": "base"
+        },
+        {
+          "name": "WebView",
+          "icon": "webview"
+        }
+      ]
+    },
+    {
       "title": "Block Builder",
       "description": "Drag and Drop Trade Strategy Assembly",
       "projectLinks": [
