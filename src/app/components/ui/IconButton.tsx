@@ -42,10 +42,10 @@ export default function Button({
   const variantClasses = {
     primary: disabled
       ? "bg-slate-600 text-slate-200"
-      : "bg-slate-900 active:bg-slate-900 active:border-purple-800/80 hover:border-slate-700 hover:bg-slate-950 border-2 border-slate-600",
+      : "bg-slate-900 active:bg-slate-900 active:border-green-800/80 hover:border-slate-700 hover:bg-slate-950 border-2 border-slate-600",
     secondary: disabled
       ? "bg-slate-700 text-slate-200"
-      : "bg-slate-700 hover:border-purple-800 active:bg-slate-800 border-2 border-slate-600",
+      : "bg-slate-700 hover:border-green-800 active:bg-slate-800 border-2 border-slate-600",
   };
 
   const baseClassName =
