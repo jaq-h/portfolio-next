@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jaq h",
-  description: "Personal Project Portfolio",
+  title: "Jacques Hebert",
+  description: "Technical Project Portfolio",
   icons: {
     icon: "/favicon.ico",
   },
